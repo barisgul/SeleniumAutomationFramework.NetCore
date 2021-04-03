@@ -14,6 +14,9 @@ namespace Framework.Core.Infrastructure.Managers
 
         public IWebDriver GetDriver(BrowserType browserType)
         {
+            if (browserType == null)
+                throw new ArgumentNullException(nameof(browserType));
+
             if (browserType.Equals(BrowserType.CHROME))
             {
                 throw new NotImplementedException();
