@@ -4,4 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.ApiHandler\Framework.ApiHandler.csproj" />
+    <ProjectReference Include="..\Framework.Common\Framework.Common.csproj" />
+  </ItemGroup>
+
 </Project>
