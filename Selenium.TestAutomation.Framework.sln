@@ -7,23 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54CE781C-21E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DEC96B13-226E-42CE-BF41-CA5FBEDBFB99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.ApiHandler", "src\Framework.ApiHandler\Framework.ApiHandler.csproj", "{FFF1417C-EA17-4F47-A32F-42A9A8A37DA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.ApiHandler", "src\Framework.ApiHandler\Framework.ApiHandler.csproj", "{FFF1417C-EA17-4F47-A32F-42A9A8A37DA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Core", "src\Framework.Core\Framework.Core.csproj", "{3A5E84FF-48E2-4E4C-8B6B-53C7FCC796E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Core", "src\Framework.Core\Framework.Core.csproj", "{3A5E84FF-48E2-4E4C-8B6B-53C7FCC796E4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{02813315-21A6-439A-8A2C-6A056B8C7649}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTest", "IntegrationTest", "{E2BDA2D2-9677-4B8E-BC0E-73D49F0523BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.ApiHandler.UnitTest", "test\UnitTest\Framework.ApiHandler.UnitTest\Framework.ApiHandler.UnitTest.csproj", "{1692E2C8-51D0-47B0-B893-E65162325F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.ApiHandler.UnitTest", "test\UnitTest\Framework.ApiHandler.UnitTest\Framework.ApiHandler.UnitTest.csproj", "{1692E2C8-51D0-47B0-B893-E65162325F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Common", "src\Framework.Common\Framework.Common.csproj", "{3880E8EF-3100-4A02-8CB6-D894E0455465}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Common", "src\Framework.Common\Framework.Common.csproj", "{3880E8EF-3100-4A02-8CB6-D894E0455465}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UITest", "UITest", "{5B5D95E4-070B-4235-A8E2-B0BB176D3AE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trello.UiTest", "test\UiTest\Trello.UiTest\Trello.UiTest.csproj", "{EA5C14B4-7364-45D3-9FCE-1E2E57D1395B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trello.UiTest", "test\UiTest\Trello.UiTest\Trello.UiTest.csproj", "{EA5C14B4-7364-45D3-9FCE-1E2E57D1395B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Selenium.IntegrationTest", "test\IntegrationTest\Selenium.IntegrationTest\Selenium.IntegrationTest.csproj", "{54BADBF8-12C4-4C83-B382-6CFD042053F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium.IntegrationTest", "test\IntegrationTest\Selenium.IntegrationTest\Selenium.IntegrationTest.csproj", "{54BADBF8-12C4-4C83-B382-6CFD042053F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlowProject1", "test\UiTest\SpecFlowProject1\SpecFlowProject1.csproj", "{9C92BD3D-B443-471D-BCF1-5205FF81D074}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{54BADBF8-12C4-4C83-B382-6CFD042053F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54BADBF8-12C4-4C83-B382-6CFD042053F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54BADBF8-12C4-4C83-B382-6CFD042053F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C92BD3D-B443-471D-BCF1-5205FF81D074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C92BD3D-B443-471D-BCF1-5205FF81D074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C92BD3D-B443-471D-BCF1-5205FF81D074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C92BD3D-B443-471D-BCF1-5205FF81D074}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{5B5D95E4-070B-4235-A8E2-B0BB176D3AE2} = {DEC96B13-226E-42CE-BF41-CA5FBEDBFB99}
 		{EA5C14B4-7364-45D3-9FCE-1E2E57D1395B} = {5B5D95E4-070B-4235-A8E2-B0BB176D3AE2}
 		{54BADBF8-12C4-4C83-B382-6CFD042053F8} = {E2BDA2D2-9677-4B8E-BC0E-73D49F0523BF}
+		{9C92BD3D-B443-471D-BCF1-5205FF81D074} = {5B5D95E4-070B-4235-A8E2-B0BB176D3AE2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F04FFD46-7EEB-49E7-8A43-BEA7F12CB085}
