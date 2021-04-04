@@ -1,10 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Framework.Core.Entites;
+using Framework.Core.Infrastructure.Entites;
+using OpenQA.Selenium;
+using System;
 
 namespace Framework.Core.Infrastructure.Managers
 {
-    public class DriverManager
+    public class DriverManager : IDisposable
     {
+        private readonly DriverFactory driverFactory;
+        private IWebDriver webDriver;
+        private readonly BrowserType browserType;
+        private readonly ExecutionEnvironment environment;
+        private readonly DriverModel driverModel;
+        public DriverManager(ExecutionEnvironment environment, BrowserType browserType)
+        {
+            this.browserType = browserType;
+            this.environment = environment;
+            driverModel = new DriverModel
+            {
+                BrowserType = browserType,
+                ExecutionEnvironment = environment
+            };
+            driverFactory = new DriverFactory();
+        }
+
+        public IWebDriver CreateWebDriverInstance()
+        {  
+            webDriver = driverFactory.GetDriver(environment, browserType);
+
+            return webDriver;
+        }
+
+        public void Dispose()
+        {
+            webDriver.Quit();
+            webDriver.Close();
+        }
     }
 }

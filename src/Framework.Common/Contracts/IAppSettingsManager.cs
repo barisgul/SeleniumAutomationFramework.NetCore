@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Framework.Common.Entities;
 
 namespace Framework.Common.Contracts
 {
     public interface IAppSettingsManager
     {
+        SeleniumServices SeleniumServices { get; set; }
+        RestServices RestServices { get; set; }
+        public string Browser { get;}
+        public string ExecutionEnvironment { get;}
     }
 }

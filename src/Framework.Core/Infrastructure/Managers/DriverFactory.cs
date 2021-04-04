@@ -1,41 +1,57 @@
 ﻿using Framework.Core.Entites;
+using Framework.Core.Infrastructure.DriverCapabilities;
+using Framework.Core.Infrastructure.Entites;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using System;
 
 namespace Framework.Core.Infrastructure.Managers
 {
-    public class DriverFactory : IDisposable
+    public class DriverFactory
     {
-        private IWebDriver driver;
-        public DriverFactory()
-        {
-            driver = null;
-        }
+        private IWebDriver driver = null;
 
-        public IWebDriver GetDriver(BrowserType browserType)
+        public IWebDriver GetDriver(ExecutionEnvironment executionEnvironment, BrowserType browserType)
         {
-            if (browserType == null)
-                throw new ArgumentNullException(nameof(browserType));
-
-            if (browserType.Equals(BrowserType.CHROME))
+            if (executionEnvironment.Equals(ExecutionEnvironment.LOCAL))
             {
-                throw new NotImplementedException();
-                //return driver
+                switch (browserType)
+                {
+                    case BrowserType.NONE:
+                        {
+                            throw new ArgumentNullException(nameof(driver));
+                        }
+                    case BrowserType.CHROME:
+                        {
+                            ChromeOptions options = ChromeDriverOptions.GetChromeOptions();
+                            driver = new ChromeDriver(options);
+                            break;
+                        }
+                    case BrowserType.IE:
+                        {
+                            driver = new InternetExplorerDriver();
+                            break;
+                        }
+                    case BrowserType.FIREFOX:
+                        {
+                            driver = new FirefoxDriver();
+                            break;
+                        }
+                    default:
+                        { 
+                            break;
+                        }
+                }
+            }
+            else if (executionEnvironment.Equals(ExecutionEnvironment.REMOTE))
+            {
+                // Remote web driver factory should be implement with desired browser capabilities/options.
+                // For this case it is not obligated
             }
 
-            if (browserType.Equals(BrowserType.FIREFOX))
-            {
-                throw new NotImplementedException();
-                //return driver
-            }
-
-            throw new NotImplementedException();
-        }
-
-        public void Dispose()
-        {
-            driver.Close();
-            driver.Quit();
+            return driver;
         }
     }
 }
