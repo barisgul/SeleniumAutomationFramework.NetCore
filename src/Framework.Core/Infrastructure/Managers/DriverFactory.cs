@@ -1,5 +1,5 @@
 ﻿using Framework.Core.Entites;
-using Framework.Core.Infrastructure.DriverCapabilities;
+using Framework.Core.Infrastructure.BrowserOptions;
 using Framework.Core.Infrastructure.Entites;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;

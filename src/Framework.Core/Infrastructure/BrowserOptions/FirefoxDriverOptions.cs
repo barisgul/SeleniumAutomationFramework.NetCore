@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium.Firefox;
 using System;
 
-namespace Framework.Core.Infrastructure.Drivers
+namespace Framework.Core.Infrastructure.BrowserOptions
 {
     public class FirefoxDriverOptions
     {

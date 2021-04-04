@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium.Chrome;
 
-namespace Framework.Core.Infrastructure.DriverCapabilities
+namespace Framework.Core.Infrastructure.BrowserOptions
 {
     public class ChromeDriverOptions 
     {

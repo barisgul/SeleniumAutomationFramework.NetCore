@@ -1,10 +1,7 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.IE;
+﻿using OpenQA.Selenium.IE;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Framework.Core.Infrastructure.DriverCapabilities
+namespace Framework.Core.Infrastructure.BrowserOptions
 {
     public class IEDriverOptions
     {
