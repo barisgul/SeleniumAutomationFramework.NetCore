@@ -1,39 +1,41 @@
 ﻿using FluentAssertions;
+using Framework.Core.Domain;
 using SpecFlowProject1.Helpers;
 using SpecFlowProject1.Pages;
-using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
 namespace SpecFlowProject1.Steps
 {
     [Binding, Scope(Feature ="Trello")]
-    public class TrelloStepDefinitions : IDisposable
+    public class TrelloStepDefinitions : BasePage
     {
-        TrelloBoardPage trelloPage = new TrelloBoardPage();
+        LoginPage loginPage;
+        TrelloBoardPage trelloPage;
         private Credentials credentials;
         public TrelloStepDefinitions()
         {
-             
+            loginPage = new LoginPage(driver);
+            trelloPage = new TrelloBoardPage(driver);
         }
 
         [StepDefinition(@"Open trello application on '(.*)'")]
         public void OpenApplicaiton(string url)
         {
-            trelloPage.Navigate(url);
+            NavigateTo(url);
         }
 
         [StepDefinition(@"Click on login")]
         public void ClickOnLogin()
         {
-            trelloPage.ClickOnLogin();
+            loginPage.ClickOnLogin();
         }
 
         [StepDefinition(@"Enter username")]
         public void EnterUsername(Table table)
         {
             credentials = table.CreateInstance<Credentials>();
-            trelloPage.SetUsername(credentials.UserName);
+            loginPage.SetUsername(credentials.UserName);
         }
 
         [StepDefinition(@"Click on 'Log in with Atlassian'")]
@@ -87,10 +89,6 @@ namespace SpecFlowProject1.Steps
         {
             
         }
-
-        public void Dispose()
-        {
-            trelloPage.Dispose();
-        }
+         
     }
 }
