@@ -1,4 +1,5 @@
-﻿using Framework.Core.Entites;
+﻿using Framework.Common;
+using Framework.Core.Entites;
 using Framework.Core.Infrastructure.Entites;
 using OpenQA.Selenium;
 using System;
@@ -27,7 +28,7 @@ namespace Framework.Core.Infrastructure.Managers
         public IWebDriver CreateWebDriverInstance()
         {  
             webDriver = driverFactory.GetDriver(environment, browserType);
-
+            Logger.Info(string.Format("Selenium {0} created successfully", webDriver));
             return webDriver;
         }
 
@@ -35,6 +36,7 @@ namespace Framework.Core.Infrastructure.Managers
         {
             webDriver.Quit();
             webDriver.Close();
+            Logger.Info("Dispose methode initialized. Selenium WebDriver closed!");
         }
     }
 }
