@@ -3,7 +3,7 @@ using System;
 
 namespace Framework.Core.Domain
 {
-    public class BasePage : PageManager, IDisposable
+    public abstract class BasePage : PageManager, IDisposable
     {
         public BasePage()
         {
@@ -15,9 +15,10 @@ namespace Framework.Core.Domain
             driver.Navigate().GoToUrl(url);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
-            driver.Quit();
+            driver.Close();
+            driver.Quit(); 
         }
     }
 }

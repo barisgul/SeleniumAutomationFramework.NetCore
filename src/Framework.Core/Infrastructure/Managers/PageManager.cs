@@ -1,4 +1,5 @@
 ﻿using Framework.Common.Contracts;
+using Framework.Common.Entities;
 using Framework.Common.Managers;
 using Framework.Core.Entites;
 using Framework.Core.Infrastructure.Entites;
@@ -11,14 +12,14 @@ namespace Framework.Core.Infrastructure.Managers
     {
         private IAppSettingsManager appSettingsManager;
         private DriverManager driverManager;  
-        public IWebDriver driver;
+        public IWebDriver driver { get; set; } 
         public PageManager()
         {
             appSettingsManager = new AppSettingsManager();
         }
 
         public void Init()
-        {
+        { 
             driverManager = new DriverManager(ExecutionEnvironment, BrowserType);
             driver = driverManager.CreateWebDriverInstance();
             driver.Manage().Window.FullScreen();
@@ -38,6 +39,6 @@ namespace Framework.Core.Infrastructure.Managers
             {
                 return EnumConverter.StringToEnum<ExecutionEnvironment>(appSettingsManager.ExecutionEnvironment);
             }
-        }
+        }         
     }
 }
