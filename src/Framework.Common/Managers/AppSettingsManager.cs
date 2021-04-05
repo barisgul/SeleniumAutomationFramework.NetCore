@@ -8,6 +8,8 @@ namespace Framework.Common.Managers
     public class AppSettingsManager : IAppSettingsManager
     {
         private readonly IConfigurationBuilder builder;
+        const string selenimServices = "SeleniumServices";
+        const string restServices = "RestServices";
         public AppSettingsManager()
         {
             builder = new ConfigurationBuilder()
@@ -19,8 +21,8 @@ namespace Framework.Common.Managers
         {
             return new RestServiceSettings
             {
-                BaseUrl = builder.Build().GetSection("RestServices").GetSection("ApiUrl").Value,
-                Timeout = long.Parse(builder.Build().GetSection("RestServices").GetSection("Timeout").Value)
+                BaseUrl = builder.Build().GetSection(restServices).GetSection("ApiUrl").Value,
+                Timeout = long.Parse(builder.Build().GetSection(restServices).GetSection("Timeout").Value)
             };
         }
 
@@ -28,11 +30,11 @@ namespace Framework.Common.Managers
         {
             return new SeleniumServiceSettings
             {
-                Browser = builder.Build().GetSection("SeleniumServices").GetSection("Browser").Value.ToUpper(),
-                ExecutionEnvironment = builder.Build().GetSection("SeleniumServices").GetSection("ExecutionEnvironment").Value.ToUpper(),
-                ApplicationUrl = builder.Build().GetSection("SeleniumServices").GetSection("ApplicationUrl").Value,
-                HeadlessMode = builder.Build().GetSection("SeleniumServices").GetSection("HeadlessMode").Value,
-                Timeout = long.Parse(builder.Build().GetSection("SeleniumServices").GetSection("Timeout").Value)
+                Browser = builder.Build().GetSection(selenimServices).GetSection("Browser").Value.ToUpper(),
+                ExecutionEnvironment = builder.Build().GetSection(selenimServices).GetSection("ExecutionEnvironment").Value.ToUpper(),
+                ApplicationUrl = builder.Build().GetSection(selenimServices).GetSection("ApplicationUrl").Value,
+                HeadlessMode = builder.Build().GetSection(selenimServices).GetSection("HeadlessMode").Value,
+                Timeout = long.Parse(builder.Build().GetSection(selenimServices).GetSection("Timeout").Value)
             };
         }
     }
