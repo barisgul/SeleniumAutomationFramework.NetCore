@@ -1,4 +1,5 @@
 ﻿using Framework.Core.Infrastructure.Managers;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace Framework.Core.Domain
@@ -13,6 +14,16 @@ namespace Framework.Core.Domain
         public void NavigateTo(string url)
         {
             driver.Navigate().GoToUrl(url);
+        }
+
+        public void NavigateToSinglePage()
+        {
+            driver.Navigate().GoToUrl(seleniumServiceSettings.ApplicationUrl);
+        }
+
+        public void WaitUntilElementToBe(ExpectedConditions conditions)
+        {
+
         }
 
         public virtual void Dispose()

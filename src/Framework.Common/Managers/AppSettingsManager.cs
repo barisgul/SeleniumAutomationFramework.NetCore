@@ -30,7 +30,8 @@ namespace Framework.Common.Managers
             {
                 Browser = builder.Build().GetSection("SeleniumServices").GetSection("Browser").Value.ToUpper(),
                 ExecutionEnvironment = builder.Build().GetSection("SeleniumServices").GetSection("ExecutionEnvironment").Value.ToUpper(),
-                HeadlessMode = bool.Parse(builder.Build().GetSection("SeleniumServices").GetSection("HeadlessMode").Value),
+                ApplicationUrl = builder.Build().GetSection("SeleniumServices").GetSection("ApplicationUrl").Value,
+                HeadlessMode = builder.Build().GetSection("SeleniumServices").GetSection("HeadlessMode").Value,
                 Timeout = long.Parse(builder.Build().GetSection("SeleniumServices").GetSection("Timeout").Value)
             };
         }

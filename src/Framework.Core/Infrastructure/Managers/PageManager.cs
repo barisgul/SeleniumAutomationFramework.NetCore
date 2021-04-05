@@ -13,7 +13,7 @@ namespace Framework.Core.Infrastructure.Managers
         private IAppSettingsManager appSettingsManager;
         private DriverManager driverManager;  
         public IWebDriver driver { get; set; } 
-        private readonly SeleniumServiceSettings seleniumServiceSettings; 
+        public readonly SeleniumServiceSettings seleniumServiceSettings; 
         public PageManager()
         {
             appSettingsManager = new AppSettingsManager();
