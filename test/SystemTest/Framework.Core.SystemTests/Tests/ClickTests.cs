@@ -2,6 +2,7 @@
 using Xunit;
 using System;
 using FluentAssertions;
+using Framework.Common;
 
 namespace Framework.Core.SystemTests.Tests
 {
@@ -13,7 +14,7 @@ namespace Framework.Core.SystemTests.Tests
         /// </summary>
         private readonly ClickModel clickModel = new ClickModel();
         public ClickTests()
-        {
+        {             
             clickModel.GoTo();
         } 
 
@@ -21,7 +22,7 @@ namespace Framework.Core.SystemTests.Tests
         [Trait("Category", "WebDriver.SystemTest")]
         public void ClickToNormalLink()
         {
-           
+            Logger.Info("ClickToNormalLink test started");
             clickModel.ClickLinkNormal();
         }
 
@@ -30,6 +31,7 @@ namespace Framework.Core.SystemTests.Tests
         [Trait("Category", "WebDriver.SystemTest")]
         public void ClickLinkOverflow()
         {
+            Logger.Info("ClickLinkOverflow test started");
             clickModel.ClickLinkOwerFlow();
         }
 
@@ -37,6 +39,7 @@ namespace Framework.Core.SystemTests.Tests
         [Trait("Category", "WebDriver.SystemTest")]
         public void Click_CanClickOnALinkAndFollowIt()
         {
+            Logger.Info("Click_CanClickOnALinkAndFollowIt test started");
             clickModel.ClickLinkNormal();
 
             string pageTitle = clickModel.GetPageTitle();
