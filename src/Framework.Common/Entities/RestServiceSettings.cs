@@ -1,8 +1,8 @@
 ﻿namespace Framework.Common.Entities
 {
-    public class RestServices
+    public class RestServiceSettings
     {
         public string BaseUrl { get; set; }
-        public int Timeout { get; set; }
+        public long Timeout { get; set; }
     }
 }

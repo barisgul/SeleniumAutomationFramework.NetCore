@@ -13,9 +13,11 @@ namespace Framework.Core.Infrastructure.Managers
         private IAppSettingsManager appSettingsManager;
         private DriverManager driverManager;  
         public IWebDriver driver { get; set; } 
+        private readonly SeleniumServiceSettings seleniumServiceSettings; 
         public PageManager()
         {
             appSettingsManager = new AppSettingsManager();
+            seleniumServiceSettings = appSettingsManager.GetSeleniumServiceSettings();
         }
 
         public void Init()
@@ -30,14 +32,14 @@ namespace Framework.Core.Infrastructure.Managers
         {
             get
             {
-                return EnumConverter.StringToEnum<BrowserType>(appSettingsManager.Browser);
+                return EnumConverter.StringToEnum<BrowserType>(seleniumServiceSettings.Browser);
             }
         }
         private ExecutionEnvironment ExecutionEnvironment
         {
             get
             {
-                return EnumConverter.StringToEnum<ExecutionEnvironment>(appSettingsManager.ExecutionEnvironment);
+                return EnumConverter.StringToEnum<ExecutionEnvironment>(seleniumServiceSettings.ExecutionEnvironment);
             }
         }         
     }

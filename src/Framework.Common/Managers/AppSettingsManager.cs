@@ -2,7 +2,6 @@
 using Framework.Common.Entities;
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using System.Linq;
 
 namespace Framework.Common.Managers
 {
@@ -16,11 +15,24 @@ namespace Framework.Common.Managers
                                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
         }
 
-        public SeleniumServices SeleniumServices { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public RestServices RestServices { get => throw new System.NotImplementedException(); }
+        public RestServiceSettings GetRestServiceSettings()
+        {
+            return new RestServiceSettings
+            {
+                BaseUrl = builder.Build().GetSection("RestServices").GetSection("ApiUrl").Value,
+                Timeout = long.Parse(builder.Build().GetSection("RestServices").GetSection("Timeout").Value)
+            };
+        }
 
-        
-        public string Browser { get => builder.Build().GetSection("SeleniumServices").GetSection("Browser").Value.ToUpper(); }
-        public string ExecutionEnvironment { get => builder.Build().GetSection("SeleniumServices").GetSection("ExecutionEnvironment").Value.ToUpper(); }
+        public SeleniumServiceSettings GetSeleniumServiceSettings()
+        {
+            return new SeleniumServiceSettings
+            {
+                Browser = builder.Build().GetSection("SeleniumServices").GetSection("Browser").Value.ToUpper(),
+                ExecutionEnvironment = builder.Build().GetSection("SeleniumServices").GetSection("ExecutionEnvironment").Value.ToUpper(),
+                HeadlessMode = bool.Parse(builder.Build().GetSection("SeleniumServices").GetSection("HeadlessMode").Value),
+                Timeout = long.Parse(builder.Build().GetSection("SeleniumServices").GetSection("Timeout").Value)
+            };
+        }
     }
 }
