@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <None Remove="Sources\clicks.html" />
+    <None Remove="Sources\selectPage.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,9 @@
     </Content>
     <Content Include="Sources\clicks.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sources\selectPage.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
