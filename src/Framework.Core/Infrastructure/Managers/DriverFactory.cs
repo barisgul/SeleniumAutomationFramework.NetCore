@@ -13,6 +13,11 @@ namespace Framework.Core.Infrastructure.Managers
     {
         private IWebDriver driver = null;
 
+        /// <summary>
+        /// Get driver by given browser
+        /// </summary>
+        /// <param name="driverModel"></param>
+        /// <returns></returns>
         public IWebDriver GetDriver(DriverModel driverModel)
         {
             if (driverModel.ExecutionEnvironment.Equals(ExecutionEnvironment.LOCAL))
@@ -48,7 +53,7 @@ namespace Framework.Core.Infrastructure.Managers
             else if (driverModel.ExecutionEnvironment.Equals(ExecutionEnvironment.REMOTE))
             {
                 // Remote web driver factory should be implement with desired browser capabilities/options.
-                // For this case it is not obligated
+                // For this case it is not necessary
             }
 
             return driver;

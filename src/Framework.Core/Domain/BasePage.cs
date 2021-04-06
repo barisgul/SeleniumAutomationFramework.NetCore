@@ -4,9 +4,9 @@ using System;
 
 namespace Framework.Core.Domain
 {
-    public abstract class BasePage : PageManager, IDisposable
-    {
-        public BasePage()
+    public abstract class BasePage : DriverManager
+    { 
+        public BasePage() 
         {
             Init();
         }
@@ -16,14 +16,18 @@ namespace Framework.Core.Domain
             driver.Navigate().GoToUrl(url);
         }
 
-        public void NavigateToSinglePage()
-        {
-            driver.Navigate().GoToUrl(seleniumServiceSettings.ApplicationUrl);
-        }
-
         public void WaitUntilElementToBe(ExpectedConditions conditions)
         {
 
+        }
+        public void Wait(TimeSpan timeSpan)
+        {
+            driver.Manage().Timeouts().ImplicitWait = timeSpan;
+        }
+
+        public void WaitForLoadingPage()
+        {
+            //driver.Manage().Timeouts().PageLoad;
         }
 
         public virtual void Dispose()

@@ -35,6 +35,5 @@ namespace SpecFlowProject1.Pages
             btnLoginWithAtlassian.Click();
         }
         #endregion
-
     }
 }
