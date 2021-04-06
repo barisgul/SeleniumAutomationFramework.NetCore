@@ -9,7 +9,7 @@ namespace Framework.Core.SystemTests.Tests
     public class ClickTests : IDisposable
     {
         /// <summary>
-        /// This class contains webdriver based system tests and run locally.
+        /// This class contains webdriver based system tests and runs locally.
         /// For full library documentation https://dlaaal.com/Dlaaal-webApp/node_modules/selenium-webdriver/lib/test/data/
         /// </summary>
         private readonly ClickModel clickModel = new ClickModel();

@@ -13,16 +13,22 @@ namespace Framework.Core.Infrastructure.Managers
         private IAppSettingsManager appSettingsManager;
         private DriverManager driverManager;  
         public static IWebDriver driver { get; set; } 
-        public readonly SeleniumServiceSettings seleniumServiceSettings; 
+        public readonly SeleniumServiceSettings seleniumServiceSettings;
+        private readonly DriverModel driverModel;
         public PageManager()
         {
             appSettingsManager = new AppSettingsManager();
             seleniumServiceSettings = appSettingsManager.GetSeleniumServiceSettings();
+            driverModel = new DriverModel
+            {
+                ExecutionEnvironment = ExecutionEnvironment,
+                BrowserType = BrowserType
+            };
         }
 
         public void Init()
         { 
-            driverManager = new DriverManager(ExecutionEnvironment, BrowserType);
+            driverManager = new DriverManager(driverModel);
             driver = driverManager.CreateWebDriverInstance();
             driver.Manage().Window.FullScreen();
             driver.Manage().Window.Maximize();

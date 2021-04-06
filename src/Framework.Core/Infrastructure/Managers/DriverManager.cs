@@ -1,5 +1,4 @@
 ﻿using Framework.Common;
-using Framework.Core.Entites;
 using Framework.Core.Infrastructure.Entites;
 using OpenQA.Selenium;
 using System;
@@ -9,25 +8,17 @@ namespace Framework.Core.Infrastructure.Managers
     public class DriverManager : IDisposable
     {
         private readonly DriverFactory driverFactory;
-        private IWebDriver webDriver;
-        private readonly BrowserType browserType;
-        private readonly ExecutionEnvironment environment;
+        private IWebDriver webDriver; 
         private readonly DriverModel driverModel;
-        public DriverManager(ExecutionEnvironment environment, BrowserType browserType)
+        public DriverManager(DriverModel driverModel)
         {
-            this.browserType = browserType;
-            this.environment = environment;
-            driverModel = new DriverModel
-            {
-                BrowserType = browserType,
-                ExecutionEnvironment = environment
-            };
+            this.driverModel = driverModel;
             driverFactory = new DriverFactory();
         }
 
         public IWebDriver CreateWebDriverInstance()
         {  
-            webDriver = driverFactory.GetDriver(environment, browserType);
+            webDriver = driverFactory.GetDriver(driverModel);
             Logger.Info(string.Format("Selenium {0} created successfully", webDriver));
             return webDriver;
         }

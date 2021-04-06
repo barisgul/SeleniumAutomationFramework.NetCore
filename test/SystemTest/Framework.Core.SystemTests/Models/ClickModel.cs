@@ -1,19 +1,18 @@
 ﻿using Framework.Core.Domain;
 using OpenQA.Selenium;
-using System;
 using System.IO;
 using System.Reflection;
 
 namespace Framework.Core.SystemTests.Models
 {
+    /// <summary>
+    /// e2e System test model over an internal html file for selenium webdriver click methods
+    /// </summary>
     public class ClickModel : BasePage
     { 
         public IWebElement LinkNormal => driver.FindElement(By.Id("normal")); 
         public IWebElement LinkOverflow => driver.FindElement(By.Id("overflowLink"));  
 
-        public ClickModel()
-        {
-        } 
         public void GoTo()
         {
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +
