@@ -11,12 +11,12 @@ namespace Trello.UiTest.Steps
     public class TrelloStepDefinitions : BasePage
     {
         private readonly LoginPage loginPage;
-        private readonly TrelloBoardPage trelloPage;
+        private readonly TrelloMainPage trelloPage;
         private Credentials credentials;
         public TrelloStepDefinitions()
         {
             loginPage = new LoginPage(driver);
-            trelloPage = new TrelloBoardPage(driver);
+            trelloPage = new TrelloMainPage(driver);
         }
 
         [StepDefinition(@"Open trello application on '(.*)'")]

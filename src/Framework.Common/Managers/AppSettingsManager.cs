@@ -34,7 +34,7 @@ namespace Framework.Common.Managers
                 ExecutionEnvironment = builder.Build().GetSection(selenimServices).GetSection("ExecutionEnvironment").Value.ToUpper(),
                 ApplicationUrl = builder.Build().GetSection(selenimServices).GetSection("ApplicationUrl").Value,
                 HeadlessMode = builder.Build().GetSection(selenimServices).GetSection("HeadlessMode").Value,
-                Timeout = long.Parse(builder.Build().GetSection(selenimServices).GetSection("Timeout").Value)
+                Timeout = int.Parse(builder.Build().GetSection(selenimServices).GetSection("Timeout").Value)
             };
         }
     }

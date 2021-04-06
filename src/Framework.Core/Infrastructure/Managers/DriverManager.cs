@@ -15,6 +15,7 @@ namespace Framework.Core.Infrastructure.Managers
         private readonly DriverFactory driverFactory;
         public IWebDriver driver; 
         private DriverModel driverModel;
+        public int timeout { get; set; } 
 
         /// <summary>
         /// Default constructor
@@ -31,12 +32,15 @@ namespace Framework.Core.Infrastructure.Managers
         {
             string browser = appSettingsManager.GetSeleniumServiceSettings().Browser;
             string executionEnv = appSettingsManager.GetSeleniumServiceSettings().ExecutionEnvironment;
-
+            int timeout = appSettingsManager.GetSeleniumServiceSettings().Timeout;
+            
             driverModel = new DriverModel
             {
                 BrowserType = EnumConverter.StringToEnum<BrowserType>(browser),
-                ExecutionEnvironment = EnumConverter.StringToEnum<ExecutionEnvironment>(executionEnv)
+                ExecutionEnvironment = EnumConverter.StringToEnum<ExecutionEnvironment>(executionEnv) 
             };
+
+            this.timeout = timeout;
         }
 
         /// <summary>
@@ -53,7 +57,6 @@ namespace Framework.Core.Infrastructure.Managers
         public void Dispose()
         {
             driver.Quit();
-            driver.Close();
             Logger.Info("Dispose methode initialized. Selenium WebDriver closed!");
         }
     }

@@ -5,15 +5,9 @@ using System;
 namespace Trello.UiTest.Helpers
 {
     public class WebDriverHelper
-    { 
-        private static IWebDriver driver { get; set; }
-        public static void Init(IWebDriver webDriver)
-        {
-            driver = webDriver;
-        }
-
-        [Obsolete]
-        public static IWebElement WaitUntilElementClickable(By elementLocator, int timeout = 10)
+    {
+         
+        public static IWebElement WaitUntilElementClickable(IWebDriver driver, By elementLocator, int timeout = 10)
         {
             try
             {
@@ -28,7 +22,7 @@ namespace Trello.UiTest.Helpers
         }
 
         [Obsolete]
-        public static void ClickAndWaitForPageToLoad(By elementLocator, int timeout = 10)
+        public static void ClickAndWaitForPageToLoad(IWebDriver driver, By elementLocator, int timeout = 10)
         {
             try
             {

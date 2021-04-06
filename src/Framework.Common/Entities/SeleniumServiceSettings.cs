@@ -6,6 +6,6 @@
         public string Browser { get; set; }
         public string ApplicationUrl { get; set; }
         public string HeadlessMode { get; set; }
-        public long Timeout { get; set; } 
+        public int Timeout { get; set; } 
     }
 }

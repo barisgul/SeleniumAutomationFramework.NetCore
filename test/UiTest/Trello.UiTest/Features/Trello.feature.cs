@@ -85,14 +85,14 @@ namespace Trello.UiTest.Features
 #line 6
  testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "username",
                         "password"});
-            table1.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "baris.gul@outlook.com.tr",
                         "TrelloDemo.025"});
 #line 7
- testRunner.And("Enter username", ((string)(null)), table1, "* ");
+ testRunner.And("Enter username", ((string)(null)), table2, "* ");
 #line hidden
 #line 10
  testRunner.And("Click on \'Log in with Atlassian\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");

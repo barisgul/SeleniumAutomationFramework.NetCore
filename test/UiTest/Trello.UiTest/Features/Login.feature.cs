@@ -80,16 +80,16 @@ namespace Trello.UiTest.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add two numbers")]
+        [Xunit.SkippableFactAttribute(DisplayName="Login")]
         [Xunit.TraitAttribute("FeatureTitle", "Login")]
-        [Xunit.TraitAttribute("Description", "Add two numbers")]
-        [Xunit.TraitAttribute("Category", "mytag")]
-        public virtual void AddTwoNumbers()
+        [Xunit.TraitAttribute("Description", "Login")]
+        [Xunit.TraitAttribute("Category", "login")]
+        public virtual void Login()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "login"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -111,16 +111,37 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 6
- testRunner.Given("the first number is 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("Open trello application on \'https://trello.com/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 7
- testRunner.And("the second number is 70", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "username",
+                            "password"});
+                table1.AddRow(new string[] {
+                            "baris.gul@outlook.com.tr",
+                            "TrelloDemo.025"});
 #line 8
- testRunner.When("the two numbers are added", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("Enter username", ((string)(null)), table1, "* ");
 #line hidden
-#line 9
- testRunner.Then("the result should be 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+ testRunner.And("Click on \'Log in with Atlassian\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 12
+ testRunner.And("Enter password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 13
+ testRunner.And("Click on Log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 14
+ testRunner.And("Trello dashboard should be open and \'Boards\' menu should be visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 15
+ testRunner.And("Click on logout button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 16
+ testRunner.And("Logout should be succeded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }
             this.ScenarioCleanup();

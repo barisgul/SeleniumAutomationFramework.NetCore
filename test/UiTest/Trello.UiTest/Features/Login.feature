@@ -1,9 +1,16 @@
 ﻿Feature: Login
 	Login to Trello with specified credentials in the scenario
 
-@mytag
-Scenario: Add two numbers
-	Given the first number is 50
-	And the second number is 70
-	When the two numbers are added
-	Then the result should be 120
+@login
+Scenario: Login 
+	* Open trello application on 'https://trello.com/'
+	* Click on login
+	* Enter username
+	| username   | password |
+	| baris.gul@outlook.com.tr | TrelloDemo.025 |
+	* Click on 'Log in with Atlassian'
+	* Enter password
+	* Click on Log in 
+	* Trello dashboard should be open and 'Boards' menu should be visible
+	* Click on logout button
+	* Logout should be succeded
