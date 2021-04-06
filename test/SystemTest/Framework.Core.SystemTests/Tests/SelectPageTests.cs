@@ -2,8 +2,6 @@
 using Framework.Common;
 using Framework.Core.SystemTests.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace Framework.Core.SystemTests.Tests

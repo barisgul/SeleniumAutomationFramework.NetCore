@@ -1,17 +1,17 @@
 ﻿using FluentAssertions;
-using Framework.Core.Domain;
-using SpecFlowProject1.Helpers;
-using SpecFlowProject1.Pages;
+using Framework.Core.Domain;  
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using Trello.UiTest.Helpers;
+using Trello.UiTest.Pages;
 
-namespace SpecFlowProject1.Steps
+namespace Trello.UiTest.Steps
 {
     [Binding, Scope(Feature ="Trello")]
     public class TrelloStepDefinitions : BasePage
     {
-        LoginPage loginPage;
-        TrelloBoardPage trelloPage;
+        private readonly LoginPage loginPage;
+        private readonly TrelloBoardPage trelloPage;
         private Credentials credentials;
         public TrelloStepDefinitions()
         {
@@ -41,22 +41,27 @@ namespace SpecFlowProject1.Steps
         [StepDefinition(@"Click on 'Log in with Atlassian'")]
         public void ClickOnAttlassianLogin()
         {
+            loginPage.ClickOnLoginWithAtlassian();
         }
 
         [StepDefinition(@"Enter password")]
         public void EnterPassword()
         {
+            loginPage.SetPassword(credentials.Password);
         }
 
 
         [StepDefinition(@"Click on Log in")]
         public void SignInToApplicaiton()
-        { 
+        {
+            loginPage.SubmitLogin();
         }
 
-        [StepDefinition(@"Open trello application board")]
-        public void GivenOpenTrelloApplicationBoard()
-        { 
+        [StepDefinition(@"Trello dashboard should be open and '(.*)' menı should be visible")]
+        public void GivenOpenTrelloApplicationBoard(string textToCheck)
+        {
+            bool isComponentLoaded = trelloPage.IsPageLoaded(textToCheck);
+            isComponentLoaded.Should().BeTrue();
         }
 
 

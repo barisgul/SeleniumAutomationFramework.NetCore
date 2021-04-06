@@ -7,7 +7,7 @@ namespace Framework.Core.Infrastructure.BrowserOptions
     {
         public static InternetExplorerOptions GetExplorerOptions()
         {
-            //implement options if needed
+            //implement options if necessary
             throw new NotImplementedException();
         }
     }

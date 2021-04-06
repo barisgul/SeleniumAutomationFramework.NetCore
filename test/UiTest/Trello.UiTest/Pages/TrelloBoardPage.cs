@@ -1,19 +1,25 @@
 ﻿using OpenQA.Selenium;
+using Trello.UiTest.Helpers;
 
-namespace SpecFlowProject1.Pages
+namespace Trello.UiTest.Pages
 {
     public class TrelloBoardPage 
     {
         private readonly IWebDriver driver;
-        public IWebElement  lblBoardName => driver.FindElement(By.XPath("//*[@id='content']/div/div[1]/div[1]/div[2]/h1"));
+        private readonly By byLblBoard = By.XPath("//span[@class='_3qwe2tMMFonNvf' and text() = 'Boards']");
+        private IWebElement  lblBoards => driver.FindElement(byLblBoard);
+        
 
         public TrelloBoardPage(IWebDriver driver)
         {
             this.driver = driver;
         }
+
+        [System.Obsolete]
         public bool IsPageLoaded(string text)
         {
-            var boarText = lblBoardName.Text;
+            WebDriverHelper.WaitUntilElementClickable(byLblBoard, 25);
+            var boarText = lblBoards.Text;
 
             return boarText.Equals(text);
         } 

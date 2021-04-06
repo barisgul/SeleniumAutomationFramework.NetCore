@@ -15,7 +15,7 @@ namespace Framework.Core.SystemTests.Tests
         private readonly ClickModel clickModel = new ClickModel();
         public ClickTests()
         {             
-            clickModel.GoTo();
+            clickModel.GoToInternalPage();
         } 
 
         [Fact]

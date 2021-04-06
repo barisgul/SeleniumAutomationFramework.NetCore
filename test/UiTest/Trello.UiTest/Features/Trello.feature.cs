@@ -80,10 +80,10 @@ namespace Trello.UiTest.Features
 #line 4
 #line hidden
 #line 5
-testRunner.And("Open trello application on \'https://trello.com/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Open trello application on \'https://trello.com/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 6
-testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "username",
@@ -92,19 +92,19 @@ testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(nu
                         "baris.gul@outlook.com.tr",
                         "TrelloDemo.025"});
 #line 7
-testRunner.And("Enter username", ((string)(null)), table1, "* ");
+ testRunner.And("Enter username", ((string)(null)), table1, "* ");
 #line hidden
 #line 10
-testRunner.And("Click on \'Log in with Atlassian\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Click on \'Log in with Atlassian\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 11
-testRunner.And("Enter password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Enter password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 12
-testRunner.And("Click on Log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Click on Log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 13
-testRunner.And("\'AssignmentBoard\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Trello dashboard should be open and \'Boards\' menı should be visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
         }
         

@@ -1,4 +1,5 @@
-﻿using Framework.Core.Entites;
+﻿using Framework.Common;
+using Framework.Core.Entites;
 using Framework.Core.Infrastructure.BrowserOptions;
 using Framework.Core.Infrastructure.Entites;
 using OpenQA.Selenium;
@@ -26,22 +27,27 @@ namespace Framework.Core.Infrastructure.Managers
                 {
                     case BrowserType.NONE:
                         {
-                            throw new ArgumentNullException(nameof(driver));
+                            var exception = new ArgumentNullException(nameof(driverModel.BrowserType));
+                            Logger.Error("At least one browser type should be configured. Please define a browser type in appsettings.json file!",exception);
+                            throw exception;
                         }
                     case BrowserType.CHROME:
                         {
                             ChromeOptions options = ChromeDriverOptions.GetChromeOptions();
                             driver = new ChromeDriver(options);
+                            Logger.Info(string.Format("{0} is configured as working browser", BrowserType.CHROME));
                             break;
                         }
                     case BrowserType.IE:
                         {
                             driver = new InternetExplorerDriver();
+                            Logger.Info(string.Format("{0} is configured as working browser", BrowserType.IE));
                             break;
                         }
                     case BrowserType.FIREFOX:
                         {
                             driver = new FirefoxDriver();
+                            Logger.Info(string.Format("{0} is configured as working browser", BrowserType.FIREFOX));
                             break;
                         }
                     default:
@@ -52,7 +58,7 @@ namespace Framework.Core.Infrastructure.Managers
             }
             else if (driverModel.ExecutionEnvironment.Equals(ExecutionEnvironment.REMOTE))
             {
-                // Remote web driver factory should be implement with desired browser capabilities/options.
+                // Remote web driver factory should be implement with desired browser capabilities/options 
                 // For this case it is not necessary
             }
 

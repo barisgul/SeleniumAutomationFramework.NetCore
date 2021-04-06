@@ -1,4 +1,4 @@
-﻿namespace SpecFlowProject1.Helpers
+﻿namespace Trello.UiTest.Helpers
 {
     public class Credentials
     {

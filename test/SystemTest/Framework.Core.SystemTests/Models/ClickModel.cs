@@ -13,7 +13,7 @@ namespace Framework.Core.SystemTests.Models
         public IWebElement LinkNormal => driver.FindElement(By.Id("normal")); 
         public IWebElement LinkOverflow => driver.FindElement(By.Id("overflowLink"));  
 
-        public void GoTo()
+        public void GoToInternalPage()
         {
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) +
                                                                            "\\Sources\\clicks.html";

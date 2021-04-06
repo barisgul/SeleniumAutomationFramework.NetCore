@@ -7,7 +7,7 @@ namespace Framework.Core.Infrastructure.BrowserOptions
     {
         public static FirefoxOptions GetFirefoxOptions()
         {
-            //todo implement if need
+            //todo implement if necessary
             throw new NotImplementedException();
         }
     }
