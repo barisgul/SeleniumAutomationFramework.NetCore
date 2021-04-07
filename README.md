@@ -10,14 +10,17 @@ Selenium Test Automation Framework With Specflow and xUnit on .NetCore 3.1
   * Specflow (BDD)
 * Assertions
   * Fluent Assertions
-* Reporting
-  * SpecFlow.Plus.LivingDoc.CLI for Specflow BDD based tests.
-  * Custom vs xml reporting for unit  integration tests
+* Web Automation
+  * Selenium Webdriver 3.14
+  * Browser support (Chrome, IE, Firefox)
 * Testing
   * webdriver based system testing
   * RestSharp for api testing
-* Web Automation
-  * Selenium Webdriver 3.14
+* Logging
+  * Serlog (log to file, console or elastic common scheme)
+* Reporting
+  * SpecFlow.Plus.LivingDoc.CLI for Specflow BDD based tests.
+  * Custom vs xml reporting for unit  integration tests
 
 
 
