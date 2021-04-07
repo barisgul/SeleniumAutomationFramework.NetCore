@@ -153,7 +153,10 @@ this.FeatureBackground();
  testRunner.And("\'ChallangeTeam\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 19
- testRunner.And("Create \'To To Task\' in \'To Do\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Create \'To Do Task\' in \'To Do\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 20
+ testRunner.And("\'To Do Task\' card should be created in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -169,7 +172,7 @@ this.FeatureBackground();
                     "CreateNewCardAndThenDelete"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create New Card And Then Delete", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 22
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -192,23 +195,73 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 23
+#line 24
  testRunner.And("Click to \'ChallangeTeam\' on dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 24
+#line 25
  testRunner.And("\'ChallangeTeam\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 25
- testRunner.And("Create \'TaskToBeDeleted\' in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
 #line 26
- testRunner.And("\'TaskToBeDeleted\' card should be created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Create \'TaskToBeDeleted\' in \'Blocked\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 27
- testRunner.And("Delete \'TaskToBeDeleted\' in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("\'TaskToBeDeleted\' card should be created in \'Blocked\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 28
- testRunner.And("\'TaskToBeDeleted\' card should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Delete \'TaskToBeDeleted\' in \'Blocked\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Create New Card And Then Move")]
+        [Xunit.TraitAttribute("FeatureTitle", "Trello")]
+        [Xunit.TraitAttribute("Description", "Create New Card And Then Move")]
+        [Xunit.TraitAttribute("Category", "CreateNewCardAndThenMove")]
+        public virtual void CreateNewCardAndThenMove()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "CreateNewCardAndThenMove"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create New Card And Then Move", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 31
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 32
+ testRunner.And("Click to \'ChallangeTeam\' on dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 33
+ testRunner.And("\'ChallangeTeam\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 34
+ testRunner.And("Create \'TaskToBeMoved\' in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 35
+ testRunner.And("\'TaskToBeMoved\' card should be created in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 36
+ testRunner.And("Enter \'Sample card description\' to description and Move \'TaskToBeMoved\' to \'Done\'" +
+                        " list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }
             this.ScenarioCleanup();

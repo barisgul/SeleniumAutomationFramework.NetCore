@@ -1,18 +1,15 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Threading;
 
 namespace Trello.UiTest.Helpers
 {
     public class WebDriverHelper
     {
-
-        public static void ForceWait(int timeout = 10)
+        public static void ImplicitWait(IWebDriver driver, int timeout = 10)
         {
-            Thread.Sleep(timeout);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(timeout);
         }
-
          /// <summary>
          /// Wait Until Element To Be Clickable
          /// </summary>
@@ -33,7 +30,6 @@ namespace Trello.UiTest.Helpers
                 throw ex;
             }
         }
-
         /// <summary>
         /// Wait until element vanished
         /// </summary>
@@ -58,7 +54,6 @@ namespace Trello.UiTest.Helpers
                 throw ex;
             }
         }
-
         /// <summary>
         /// Click and wait for page load
         /// </summary>
@@ -79,6 +74,22 @@ namespace Trello.UiTest.Helpers
                 Console.WriteLine("Element with locator: '" + elementLocator + "' was not found in current context page.");
                 throw ex;
             }
+        }
+        /// <summary>
+        /// Wait until to finding element
+        /// </summary>
+        /// <param name="driver"></param>
+        /// <param name="by"></param>
+        /// <param name="timeout"></param>
+        /// <returns></returns>
+        public static IWebElement WaitUntilToFindElement(IWebDriver driver, By by, int timeout = 10)
+        {
+            if (timeout > 0)
+            {
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
+                return wait.Until(drv => drv.FindElement(by));
+            }
+            return driver.FindElement(by);
         }
     }
 }

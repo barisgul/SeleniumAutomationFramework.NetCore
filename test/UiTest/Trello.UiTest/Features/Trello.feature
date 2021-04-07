@@ -16,15 +16,21 @@ Background: Login
 Scenario: Create New Card 
 	* Click to 'ChallangeTeam' on dashboard
 	* 'ChallangeTeam' should be opened
-	* Create 'To To Task' in 'To Do' list 
+	* Create 'To Do Task' in 'To Do' list 
+	* 'To Do Task' card should be created in 'Doing' list
 
 @CreateNewCardAndThenDelete
 Scenario: Create New Card And Then Delete
 	* Click to 'ChallangeTeam' on dashboard
 	* 'ChallangeTeam' should be opened
-	* Create 'TaskToBeDeleted' in 'Doing' list 
-	* 'TaskToBeDeleted' card should be created
-	* Delete 'TaskToBeDeleted' in 'Doing' list 
-	* 'TaskToBeDeleted' card should be deleted
+	* Create 'TaskToBeDeleted' in 'Blocked' list 
+	* 'TaskToBeDeleted' card should be created in 'Blocked' list
+	* Delete 'TaskToBeDeleted' in 'Blocked' list  
 
-
+@CreateNewCardAndThenMove
+Scenario: Create New Card And Then Move
+	* Click to 'ChallangeTeam' on dashboard
+	* 'ChallangeTeam' should be opened
+	* Create 'TaskToBeMoved' in 'Doing' list 
+	* 'TaskToBeMoved' card should be created in 'Doing' list
+	* Enter 'Sample card description' to description and Move 'TaskToBeMoved' to 'Done' list  

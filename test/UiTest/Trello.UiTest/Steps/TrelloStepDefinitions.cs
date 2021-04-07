@@ -12,13 +12,15 @@ namespace Trello.UiTest.Steps
     {
         private readonly LoginPage loginPage;
         private readonly TrelloMainPage trelloMainPage;
-        TrelloBoardPage trelloBoardPage;
+        private readonly TrelloBoardPage trelloBoardPage;
+        private readonly CardContainerPage cardContainerPage;
         private Credentials credentials;
         public TrelloStepDefinitions()
         {
             loginPage = new LoginPage(driver, timeout);
             trelloMainPage = new TrelloMainPage(driver, timeout);
             trelloBoardPage = new TrelloBoardPage(driver, timeout);
+            cardContainerPage = new CardContainerPage(driver, timeout);
         }
 
         [Given(@"Open trello application on '(.*)'")]
@@ -81,30 +83,27 @@ namespace Trello.UiTest.Steps
 
 
         [StepDefinition(@"Create '(.*)' in '(.*)' list")]
-        public void GivenClickOnInList(string cardName, string p1)
+        public void GivenClickOnInList(string cardName, string listName)
         {
-            trelloBoardPage.CreateToDoCard(cardName);
+            trelloBoardPage.CreateCardInList(cardName, listName);
         }
 
-        [StepDefinition(@"'(.*)' card should be created")]
-        public void GivenCardShouldBeCreated(string cardName)
+        [StepDefinition(@"'(.*)' card should be created in '(.*)' list")]
+        public void GivenCardShouldBeCreated(string cardName, string listName)
         {
-            trelloBoardPage.IsBoardPageOpened(cardName).Should().BeTrue();
+            trelloBoardPage.CardShouldBeCreatedInList(cardName, listName).Should().BeTrue();
         }
 
         [StepDefinition(@"Delete '(.*)' in '(.*)' list")]
-        public void GivenDeleteInList(string cardName, string p1)
+        public void GivenDeleteInList(string cardName, string listName)
         {
-            trelloBoardPage.DeleteCard(cardName);
+            cardContainerPage.DeleteCard(cardName);
         }
 
-        [StepDefinition(@"'(.*)' card should be deleted")]
-        public void GivenCardShouldBeDeleted(string cardName)
+        [StepDefinition(@"Enter '(.*)' to description and Move '(.*)' to '(.*)' list")]
+        public void MoveToList(string description, string cardName, string listName)
         {
-            ScenarioContext.Current.Pending();
+            cardContainerPage.MoveCard(description, cardName, listName);
         }
-
-
-
     }
 }
