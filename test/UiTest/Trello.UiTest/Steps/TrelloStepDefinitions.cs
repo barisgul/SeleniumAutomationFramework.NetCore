@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using Framework.Core.Domain;  
+using Framework.Core.Domain;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Trello.UiTest.Helpers;
@@ -7,19 +7,21 @@ using Trello.UiTest.Pages;
 
 namespace Trello.UiTest.Steps
 {
-    [Binding, Scope(Feature ="Trello")]
+    [Binding, Scope(Feature = "Trello")] 
     public class TrelloStepDefinitions : BasePage
     {
         private readonly LoginPage loginPage;
-        private readonly TrelloMainPage trelloPage;
+        private readonly TrelloMainPage trelloMainPage;
+        TrelloBoardPage trelloBoardPage;
         private Credentials credentials;
         public TrelloStepDefinitions()
         {
-            loginPage = new LoginPage(driver);
-            trelloPage = new TrelloMainPage(driver);
+            loginPage = new LoginPage(driver, timeout);
+            trelloMainPage = new TrelloMainPage(driver, timeout);
+            trelloBoardPage = new TrelloBoardPage(driver, timeout);
         }
 
-        [StepDefinition(@"Open trello application on '(.*)'")]
+        [Given(@"Open trello application on '(.*)'")]
         public void OpenApplicaiton(string url)
         {
             NavigateTo(url);
@@ -51,49 +53,58 @@ namespace Trello.UiTest.Steps
         }
 
 
-        [StepDefinition(@"Click on Log in")]
+        [When(@"Click on Log in")]
         public void SignInToApplicaiton()
         {
             loginPage.SubmitLogin();
         }
 
-        [StepDefinition(@"Trello dashboard should be open and '(.*)' menı should be visible")]
+        [Then(@"Trello dashboard should be open and '(.*)' menu should be visible")]
         public void GivenOpenTrelloApplicationBoard(string textToCheck)
         {
-            bool isComponentLoaded = trelloPage.IsPageLoaded(textToCheck);
+            bool isComponentLoaded = trelloMainPage.IsPageLoaded(textToCheck);
             isComponentLoaded.Should().BeTrue();
         }
 
 
-        [StepDefinition(@"'(.*)' should be opened")]
+        [StepDefinition(@"Click to '(.*)' on dashboard")]
         public void GivenApplicationBoardShouldBeOpened(string board)
         {
-            trelloPage.IsPageLoaded(board).Should().BeTrue();
+            trelloMainPage.ClickOnBoard(board);
         }
 
-        [StepDefinition(@"Click on '(.*)' in '(.*)' list")]
-        public void GivenClickOnInList(string p0, string p1)
+        [StepDefinition(@"'(.*)' should be opened")]
+        public void GivenClickOnInList(string board)
         {
-            
+            trelloBoardPage.IsBoardPageOpened(board).Should().BeTrue();
         }
 
-        [StepDefinition(@"Type '(.*)'")]
-        public void GivenType(string p0)
+
+        [StepDefinition(@"Create '(.*)' in '(.*)' list")]
+        public void GivenClickOnInList(string cardName, string p1)
         {
-             
+            trelloBoardPage.CreateToDoCard(cardName);
         }
 
-        [StepDefinition(@"Click on '(.*)' button")]
-        public void GivenClickOnButton(string p0)
+        [StepDefinition(@"'(.*)' card should be created")]
+        public void GivenCardShouldBeCreated(string cardName)
         {
-            
+            trelloBoardPage.IsBoardPageOpened(cardName).Should().BeTrue();
         }
 
-        [StepDefinition(@"Card should be created")]
-        public void GivenCardShouldBeCreated()
+        [StepDefinition(@"Delete '(.*)' in '(.*)' list")]
+        public void GivenDeleteInList(string cardName, string p1)
         {
-            
+            trelloBoardPage.DeleteCard(cardName);
         }
-         
+
+        [StepDefinition(@"'(.*)' card should be deleted")]
+        public void GivenCardShouldBeDeleted(string cardName)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
     }
 }

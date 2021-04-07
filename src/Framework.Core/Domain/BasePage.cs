@@ -1,11 +1,14 @@
-﻿using Framework.Core.Infrastructure.Managers;
+﻿using Framework.Common;
+using Framework.Core.Infrastructure.Managers;
+using System;
 
 namespace Framework.Core.Domain
 {
-    public abstract class BasePage : DriverManager
+    public abstract class BasePage : DriverManager, IDisposable
     { 
         public BasePage() 
         {
+            Logger.Info(string.Format("{0} Test/s Started", this.GetType().Name));
             Init();
         }
 
@@ -14,9 +17,11 @@ namespace Framework.Core.Domain
             driver.Navigate().GoToUrl(url);
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         { 
-            driver.Quit(); 
+            driver.Quit();
+            Logger.Info("Dispose methode initialized. Selenium WebDriver closed!");
+            Logger.Info(string.Format("{0} Test/s Finished", this.GetType().Name));
         }
     }
 }

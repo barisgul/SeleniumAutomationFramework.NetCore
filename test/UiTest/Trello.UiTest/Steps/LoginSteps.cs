@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Framework.Core.Domain;
+using System;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Trello.UiTest.Helpers;
@@ -8,13 +9,13 @@ using Trello.UiTest.Pages;
 namespace Trello.UiTest.Steps
 {
     [Binding, Scope(Feature = "Login")]
-    public class LoginSteps : BasePage
+    public class LoginSteps : BasePage, IDisposable
     {
         Credentials credentials;
         private readonly LoginPage loginPage;
         private readonly TrelloMainPage trelloMainPage;
         public LoginSteps()
-        {
+        { 
             loginPage = new LoginPage(driver, timeout);
             trelloMainPage = new TrelloMainPage(driver, timeout);
         }
@@ -74,6 +75,11 @@ namespace Trello.UiTest.Steps
         public void EnsureSuccesLogout()
         {
             trelloMainPage.IsLoggedOutSuccessfully().Should().BeTrue();
+        }
+
+        public new void Dispose()
+        {
+            base.Dispose();
         }
     }
 }

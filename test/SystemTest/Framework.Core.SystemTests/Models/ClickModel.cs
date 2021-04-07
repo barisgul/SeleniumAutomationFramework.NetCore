@@ -35,9 +35,9 @@ namespace Framework.Core.SystemTests.Models
             return driver.Title;
         }
 
-        public override void Dispose()
-        {
-            base.Dispose();
-        }
+        //public void Dispose()
+        //{
+        //    base.Dispose();
+        //}
     }
 }

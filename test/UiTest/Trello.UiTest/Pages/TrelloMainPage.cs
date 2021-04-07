@@ -9,7 +9,7 @@ namespace Trello.UiTest.Pages
     {
         private readonly IWebDriver driver;
         private readonly int timeout;
-
+        #region WebElements
         private readonly By byLblBoard = By.XPath("//span[@class='_3qwe2tMMFonNvf' and text() = 'Boards']");
         private IWebElement  lblBoards => driver.FindElement(byLblBoard);
         private IWebElement btnProfile => driver.FindElement(By.XPath("//button[@aria-label='Open member menu']"));
@@ -18,6 +18,8 @@ namespace Trello.UiTest.Pages
 
         By lblLogoutSuccessMessageLocator = By.XPath("//div[@class='layout-centered-content']/h1");
         private IWebElement lblLogoutSuccessMessage => driver.FindElement(lblLogoutSuccessMessageLocator);
+        private IWebElement divBoardName => driver.FindElement(By.XPath("//div[@title='ChallangeTeam']"));
+        #endregion
 
 
         public TrelloMainPage(IWebDriver driver, [Optional] int timeout)
@@ -43,10 +45,15 @@ namespace Trello.UiTest.Pages
 
         public bool IsLoggedOutSuccessfully()
         {
-            string successLogoutText = "Thanks for using";
+            const string successLogoutText = "Thanks for using";
              
             WebDriverHelper.WaitUntilElementClickable(driver, lblLogoutSuccessMessageLocator, timeout);
             return lblLogoutSuccessMessage.Text.Contains(successLogoutText);
+        }
+
+        public void ClickOnBoard(string boardName)
+        { 
+            WebDriverHelper.ClickAndWaitForPageToLoad(driver, By.XPath("//div[@title='" + boardName + "']"), timeout);
         }
     }
 }

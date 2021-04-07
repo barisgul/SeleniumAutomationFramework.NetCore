@@ -9,7 +9,7 @@ using System;
 
 namespace Framework.Core.Infrastructure.Managers
 {
-    public class DriverManager : IDisposable
+    public class DriverManager
     {
         private readonly IAppSettingsManager appSettingsManager;
         private readonly DriverFactory driverFactory;
@@ -53,11 +53,6 @@ namespace Framework.Core.Infrastructure.Managers
             driver.Manage().Window.FullScreen();
             driver.Manage().Window.Maximize();
         }
-         
-        public void Dispose()
-        {
-            driver.Quit();
-            Logger.Info("Dispose methode initialized. Selenium WebDriver closed!");
-        }
+          
     }
 }

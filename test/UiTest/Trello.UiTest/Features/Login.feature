@@ -2,7 +2,7 @@
 	Login to Trello with specified credentials in the scenario
 
 @login
-Scenario: Login 
+Scenario: Login  
 	* Open trello application on 'https://trello.com/'
 	* Click on login
 	* Enter username
