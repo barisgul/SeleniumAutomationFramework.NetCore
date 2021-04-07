@@ -1,7 +1,7 @@
 # SeleniumAutomationFramework.NetCore
 Selenium Test Automation Framework With Specflow and xUnit on .NetCore 3.1
 
-# Tech Stach:
+# Tech Stack:
 * Platform
   * c#
   * .Net Core 3.1 
