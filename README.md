@@ -1,6 +1,6 @@
 # SeleniumAutomationFramework.NetCore
-Selenium Test Automation Framework With Specflow and xUnit on .NetCore 3.1
-This project is created on Page Object Pattern and Factory Pattern for automate to browsers through the UI tests. Also provides api testing based on restsharp and specflow.
+Selenium Test Automation Framework With Specflow and xUnit on .NetCore 3.1 <br/>
+This project is created on Page Object Pattern and Factory Pattern for automate to browsers through the UI tests. Also provides api testing based on restsharp and specflow. <br/>
 
 # Tech Stack:
 * Platform
@@ -11,12 +11,14 @@ This project is created on Page Object Pattern and Factory Pattern for automate 
   * Specflow (BDD)
 * Assertions
   * Fluent Assertions
+  * xunit assertions
 * Web Automation
   * Selenium Webdriver 3.14
   * Browser support (Chrome, IE, Firefox)
 * Testing
-  * webdriver based system testing
-  * RestSharp for api testing
+  * Webdriver based UI testing
+  * Webdriver based system testing
+  * RestSharp based api testing
 * Logging
   * Serlog (log to file, console or elastic common scheme)
 * Reporting
