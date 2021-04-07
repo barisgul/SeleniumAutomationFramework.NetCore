@@ -7,7 +7,7 @@ Selenium Test Automation Framework With Specflow and xUnit on .NetCore 3.1
   * .Net Core 3.1 
 * Test Framwworks
   * xUnit (for test framework)
-* Specflow (BDD)
+  * Specflow (BDD)
 * Assertions
   * Fluent Assertions
 * Reporting
