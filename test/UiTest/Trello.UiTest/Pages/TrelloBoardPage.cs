@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Runtime.InteropServices;
@@ -53,7 +54,13 @@ namespace Trello.UiTest.Pages
             WebDriverHelper.ImplicitWait(driver, 2);
             bool isCardExist = driver.FindElement(By.XPath("//span[text() = '" + cardName + "']")).Displayed;
             return isCardExist;
-        } 
-         
+        }
+
+        public bool CardShouldBeMoved(string card)
+        {
+            WebDriverHelper.ImplicitWait(driver, 2);
+            bool isCardExist = driver.FindElement(By.XPath("//span[text() = '" + card + "']")).Displayed;
+            return isCardExist;
+        }
     }
 }

@@ -33,4 +33,5 @@ Scenario: Create New Card And Then Move
 	* 'ChallangeTeam' should be opened
 	* Create 'TaskToBeMoved' in 'Doing' list 
 	* 'TaskToBeMoved' card should be created in 'Doing' list
-	* Enter 'Sample card description' to description and Move 'TaskToBeMoved' to 'Done' list  
+	* Enter 'Sample card description' to description and Move 'TaskToBeMoved' to 'Done' list
+	* 'TaskToBeMoved' card should be moved

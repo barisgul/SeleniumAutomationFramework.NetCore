@@ -263,6 +263,9 @@ this.FeatureBackground();
  testRunner.And("Enter \'Sample card description\' to description and Move \'TaskToBeMoved\' to \'Done\'" +
                         " list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
+#line 37
+ testRunner.And("\'TaskToBeMoved\' card should be moved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

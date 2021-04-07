@@ -105,5 +105,12 @@ namespace Trello.UiTest.Steps
         {
             cardContainerPage.MoveCard(description, cardName, listName);
         }
+
+        [StepDefinition(@"'(.*)' card should be moved")]
+        public void CardShouldBeMoved(string card)
+        {
+            trelloBoardPage.CardShouldBeMoved(card).Should().BeTrue();
+        }
+
     }
 }

@@ -22,7 +22,9 @@ namespace Framework.Common.Managers
             return new RestServiceSettings
             {
                 BaseUrl = builder.Build().GetSection(restServices).GetSection("ApiUrl").Value,
-                Timeout = long.Parse(builder.Build().GetSection(restServices).GetSection("Timeout").Value)
+                Timeout = int.Parse(builder.Build().GetSection(restServices).GetSection("Timeout").Value),
+                Key = builder.Build().GetSection(restServices).GetSection("Key").Value,
+                Token = builder.Build().GetSection(restServices).GetSection("Token").Value
             };
         }
 
