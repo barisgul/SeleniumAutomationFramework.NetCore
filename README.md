@@ -14,7 +14,7 @@ Selenium Test Automation Framework With Specflow and xUnit on .NetCore 3.1
   * SpecFlow.Plus.LivingDoc.CLI for Specflow BDD based tests.
   * Custom vs xml reporting for unit  integration tests
 * Api Testing
-  *RestSharp
+  * RestSharp
 
 
 
