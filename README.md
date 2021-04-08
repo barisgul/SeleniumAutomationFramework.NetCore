@@ -21,6 +21,7 @@ For more detail please visit **Selenium.Automation.Framework.docx** document und
   * Webdriver based UI testing
   * Webdriver based system testing
   * RestSharp based api testing
+  * Unit testing with xUnit
 * Logging
   * Serlog (log to file, console or elastic common scheme)
 * Reporting
