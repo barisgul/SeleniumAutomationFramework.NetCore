@@ -34,7 +34,7 @@ For more detail please visit **Selenium.Automation.Framework.docx** document und
  ![alt text](https://github.com/barisgul/SeleniumAutomationFramework.NetCore/blob/master/docs/images/projectStructure.PNG?raw=true)
 
 # Other Test Scenarios
-* You can find more test scenarios under the **docs/TestScenarios.xlsx** excel file
+* You can find more test scenarios on **docs/TestScenarios.xlsx** excel file
 
 
 
