@@ -23,7 +23,14 @@ This project is created on Page Object Pattern and Factory Pattern for automate 
   * Serlog (log to file, console or elastic common scheme)
 * Reporting
   * SpecFlow.Plus.LivingDoc.CLI for Specflow BDD based tests.
-  * Custom vs xml reporting for unit  integration tests
+  * Custom vs xml reporting for unit  integration tests<br/>
+ Generated report looks like this <br/>
+![alt text](https://github.com/barisgul/SeleniumAutomationFramework.NetCore/blob/master/docs/images/Report.LivingDocumantation.PNG?raw=true)
+
+# Project Structure:
+* Project structure is as below <br/>
+ ![alt text](https://github.com/barisgul/SeleniumAutomationFramework.NetCore/blob/master/docs/images/projectStructure.PNG?raw=true)
+
 
 
 
