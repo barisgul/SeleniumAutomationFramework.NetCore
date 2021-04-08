@@ -4,19 +4,29 @@ using System;
 
 namespace Framework.Core.Domain
 {
-    public abstract class BasePage : DriverManager, IDisposable
+    public abstract class TestBase : DriverManager, IDisposable
     { 
-        public BasePage() 
+        /// <summary>
+        /// default constructor
+        /// </summary>
+        public TestBase() 
         {
             Logger.Info(string.Format("{0} Test/s Started", this.GetType().Name));
             Init();
         }
 
+        /// <summary>
+        /// Navigates to url
+        /// </summary>
+        /// <param name="url"></param>
         public void NavigateTo(string url)
         {
             driver.Navigate().GoToUrl(url);
         }
 
+        /// <summary>
+        /// Call dispose method. In test class works like TearDown
+        /// </summary>
         public void Dispose()
         { 
             driver.Quit();

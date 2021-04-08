@@ -1,7 +1,7 @@
 ﻿using Framework.Common.Contracts;
 using Framework.Common.Managers;
 
-namespace Framework.ApiHandler.Implementations
+namespace Framework.ApiHandler
 {
     public class RestTestBase
     {

@@ -8,10 +8,8 @@ namespace Framework.ApiHandler.Contracts
     /// RestSharp wrapper for making rest requests
     /// </summary>
     public interface IRestClientHandler
-    {
-        T Execute<T>();
-        T Execute<T>(string baseUrl);
-        T Execute<T>(string baseUrl, HttpMethod httpMethod);
+    {  
+        IRestResponse Execute(Uri baseUri, Method method, IRestRequest restRequest);
         T Execute<T>(Uri baseUri, Method method, IRestRequest restRequest);
         T ExecuteGet<T>(Uri baseUrl, IRestRequest restRequest);
     }

@@ -1,5 +1,6 @@
 ﻿Feature: Login
-	Login to Trello with specified credentials in the scenario
+	Login to Trello with specified credentials and then logout succesfully.
+	Scenario steps are type of Mark-Down style
 
 @login
 Scenario: Login  

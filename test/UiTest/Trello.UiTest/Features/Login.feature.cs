@@ -40,7 +40,8 @@ namespace Trello.UiTest.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Login", "\tLogin to Trello with specified credentials in the scenario", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Login", "\tLogin to Trello with specified credentials and then logout succesfully.\r\n\tScenar" +
+                    "io steps are type of Mark-Down style", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -90,7 +91,7 @@ namespace Trello.UiTest.Features
                     "login"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 5
+#line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -110,10 +111,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
+#line 7
  testRunner.And("Open trello application on \'https://trello.com/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 7
+#line 8
  testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -122,25 +123,25 @@ this.ScenarioInitialize(scenarioInfo);
                 table1.AddRow(new string[] {
                             "baris.gul@outlook.com.tr",
                             "TrelloDemo.025"});
-#line 8
+#line 9
  testRunner.And("Enter username", ((string)(null)), table1, "* ");
 #line hidden
-#line 11
+#line 12
  testRunner.And("Click on \'Log in with Atlassian\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 12
+#line 13
  testRunner.And("Enter password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 13
+#line 14
  testRunner.And("Click on Log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 14
+#line 15
  testRunner.And("Trello dashboard should be open and \'Boards\' menu should be visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 15
+#line 16
  testRunner.And("Click on logout button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 16
+#line 17
  testRunner.And("Logout should be succeded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }

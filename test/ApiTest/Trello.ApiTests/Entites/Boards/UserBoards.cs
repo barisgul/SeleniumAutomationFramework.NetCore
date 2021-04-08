@@ -17,7 +17,7 @@ namespace Trello.ApiTests.Entites
         public object pinned { get; set; }
         public string shortLink { get; set; }
         public object[] powerUps { get; set; }
-        public DateTime dateLastActivity { get; set; }
+        public DateTime? dateLastActivity { get; set; }
         public object[] idTags { get; set; }
         public object datePluginDisable { get; set; }
         public string creationMethod { get; set; }
@@ -61,6 +61,7 @@ namespace Trello.ApiTests.Entites
             public bool canBeOrg { get; set; }
             public bool canBePrivate { get; set; }
             public bool canInvite { get; set; }
+            public string backgroundColor { get; set; }
         }
 
         public class Backgroundimagescaled
@@ -92,6 +93,7 @@ namespace Trello.ApiTests.Entites
             public bool unconfirmed { get; set; }
             public bool deactivated { get; set; }
         }
+
 
     }
 }

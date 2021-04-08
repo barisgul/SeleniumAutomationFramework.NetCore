@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Trello.ApiTests.Entites
 { 
-    public class Board
+    public class BoardModel
     {
         public string name { get; set; }
         public string desc { get; set; }

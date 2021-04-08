@@ -9,7 +9,7 @@ using Trello.UiTest.Pages;
 namespace Trello.UiTest.Steps
 {
     [Binding, Scope(Feature = "Login")]
-    public class LoginSteps : BasePage, IDisposable
+    public class LoginSteps : TestBase
     {
         Credentials credentials;
         private readonly LoginPage loginPage;
@@ -76,10 +76,6 @@ namespace Trello.UiTest.Steps
         {
             trelloMainPage.IsLoggedOutSuccessfully().Should().BeTrue();
         }
-
-        public new void Dispose()
-        {
-            base.Dispose();
-        }
+ 
     }
 }

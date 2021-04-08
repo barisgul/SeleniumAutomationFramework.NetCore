@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace Framework.Core.SystemTests.Models
 {
-    public class SelectPageModel : BasePage
+    public class SelectPageModel : TestBase
     {
         public IWebElement SelectTwo => driver.FindElement(By.XPath("//*[@id='selectWithoutMultiple']/option[2]"));
         public IWebElement LinkRoquefort => driver.FindElement(By.XPath("//*[@id='selectWithMultipleEqualsMultiple']/option[text() = 'Roquefort']"));

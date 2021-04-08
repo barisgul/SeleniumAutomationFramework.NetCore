@@ -7,8 +7,8 @@ using Trello.UiTest.Pages;
 
 namespace Trello.UiTest.Steps
 {
-    [Binding, Scope(Feature = "Trello")] 
-    public class TrelloStepDefinitions : BasePage
+    [Binding, Scope(Feature = "TrelloCards")]
+    public class TrelloStepDefinitions : TestBase
     {
         private readonly LoginPage loginPage;
         private readonly TrelloMainPage trelloMainPage;
@@ -65,6 +65,8 @@ namespace Trello.UiTest.Steps
         public void GivenOpenTrelloApplicationBoard(string textToCheck)
         {
             bool isComponentLoaded = trelloMainPage.IsPageLoaded(textToCheck);
+
+            //Assertion
             isComponentLoaded.Should().BeTrue();
         }
 
@@ -78,6 +80,7 @@ namespace Trello.UiTest.Steps
         [StepDefinition(@"'(.*)' should be opened")]
         public void GivenClickOnInList(string board)
         {
+            //Assertion
             trelloBoardPage.IsBoardPageOpened(board).Should().BeTrue();
         }
 
@@ -91,6 +94,7 @@ namespace Trello.UiTest.Steps
         [StepDefinition(@"'(.*)' card should be created in '(.*)' list")]
         public void GivenCardShouldBeCreated(string cardName, string listName)
         {
+            //Assertion
             trelloBoardPage.CardShouldBeCreatedInList(cardName, listName).Should().BeTrue();
         }
 
@@ -109,7 +113,15 @@ namespace Trello.UiTest.Steps
         [StepDefinition(@"'(.*)' card should be moved")]
         public void CardShouldBeMoved(string card)
         {
+            //Assertion
             trelloBoardPage.CardShouldBeMoved(card).Should().BeTrue();
+        }
+
+        [StepDefinition(@"'(.*)' card should be moved to '(.*)' list")]
+        public void CardShouldBeMovedToList(string card, string list)
+        {
+            //Assertion
+            trelloBoardPage.CardShouldBeMovedToList(card, list).Should().BeTrue();
         }
 
     }

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Trello.UiTest.Features
+namespace Trello.ApiTests.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,7 +19,7 @@ namespace Trello.UiTest.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.7.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class TrelloFeature : object, Xunit.IClassFixture<TrelloFeature.FixtureData>, System.IDisposable
+    public partial class TrelloBoardFeature : object, Xunit.IClassFixture<TrelloBoardFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace Trello.UiTest.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "Trello.feature"
+#line 1 "TrelloBoard.feature"
 #line hidden
         
-        public TrelloFeature(TrelloFeature.FixtureData fixtureData, Trello_UiTest_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public TrelloBoardFeature(TrelloBoardFeature.FixtureData fixtureData, Trello_ApiTests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace Trello.UiTest.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Trello", "\tSimple calculator for adding two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "TrelloBoard", "\tCreate, Get, Update and Delete Trello Board Through TrelloApi with Rest", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -75,55 +75,22 @@ namespace Trello.UiTest.Features
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 4
-#line hidden
-#line 5
- testRunner.Given("Open trello application on \'https://trello.com/\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 6
- testRunner.And("Click on login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "username",
-                        "password"});
-            table2.AddRow(new string[] {
-                        "baris.gul@outlook.com.tr",
-                        "TrelloDemo.025"});
-#line 7
- testRunner.And("Enter username", ((string)(null)), table2, "And ");
-#line hidden
-#line 10
- testRunner.And("Click on \'Log in with Atlassian\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.And("Enter password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 12
- testRunner.When("Click on Log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 13
- testRunner.Then("Trello dashboard should be open and \'Boards\' menu should be visible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-        }
-        
         void System.IDisposable.Dispose()
         {
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Create New Card")]
-        [Xunit.TraitAttribute("FeatureTitle", "Trello")]
-        [Xunit.TraitAttribute("Description", "Create New Card")]
-        [Xunit.TraitAttribute("Category", "CreateNewCard")]
-        public virtual void CreateNewCard()
+        [Xunit.SkippableFactAttribute(DisplayName="01 Create Board")]
+        [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
+        [Xunit.TraitAttribute("Description", "01 Create Board")]
+        [Xunit.TraitAttribute("Category", "createBoard")]
+        public virtual void _01CreateBoard()
         {
             string[] tagsOfScenario = new string[] {
-                    "CreateNewCard"};
+                    "createBoard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create New Card", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 16
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Create Board", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -143,36 +110,120 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
-this.FeatureBackground();
+#line 6
+ testRunner.And("As a developer I want to create a board named \'RestApiBoard\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-#line 17
- testRunner.And("Click to \'ChallangeTeam\' on dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line 7
+ testRunner.And("Call \'/boards\' endpoint with \'POST\' method", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
+#line 8
+ testRunner.And("\'RestApiBoard\' should be created", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="02 Get User Boards")]
+        [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
+        [Xunit.TraitAttribute("Description", "02 Get User Boards")]
+        [Xunit.TraitAttribute("Category", "getBoard")]
+        public virtual void _02GetUserBoards()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "getBoard"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Get User Boards", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 11
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "method",
+                            "endpoint"});
+                table1.AddRow(new string[] {
+                            "GET",
+                            "/members/barisgul8/boards"});
+#line 12
+ testRunner.Given("I make a rest request with below criteria", ((string)(null)), table1, "Given ");
+#line hidden
+#line 15
+ testRunner.Then("Board information should return", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="03 Update Board Name If Exist")]
+        [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
+        [Xunit.TraitAttribute("Description", "03 Update Board Name If Exist")]
+        [Xunit.TraitAttribute("Category", "updateBoard")]
+        public virtual void _03UpdateBoardNameIfExist()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "updateBoard"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Update Board Name If Exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 18
- testRunner.And("\'ChallangeTeam\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
 #line 19
- testRunner.And("Create \'To Do Task\' in \'To Do\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("As a developer i want to rename \'RestApiBoard\' board", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 20
- testRunner.And("\'To Do Task\' card should be created in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Call \'/boards\' endpoint with \'PUT\' method for update \'RestApiBoard\' board as \'Ren" +
+                        "amedRestApiBoard\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 21
+ testRunner.And("board should be renamed as \'RenamedRestApiBoard\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Create New Card And Then Delete")]
-        [Xunit.TraitAttribute("FeatureTitle", "Trello")]
-        [Xunit.TraitAttribute("Description", "Create New Card And Then Delete")]
-        [Xunit.TraitAttribute("Category", "CreateNewCardAndThenDelete")]
-        public virtual void CreateNewCardAndThenDelete()
+        [Xunit.SkippableFactAttribute(DisplayName="04 Delete Board If Exist")]
+        [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
+        [Xunit.TraitAttribute("Description", "04 Delete Board If Exist")]
+        [Xunit.TraitAttribute("Category", "deleteBoard")]
+        public virtual void _04DeleteBoardIfExist()
         {
             string[] tagsOfScenario = new string[] {
-                    "CreateNewCardAndThenDelete"};
+                    "deleteBoard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create New Card And Then Delete", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 23
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Delete Board If Exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -192,79 +243,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 4
-this.FeatureBackground();
-#line hidden
-#line 24
- testRunner.And("Click to \'ChallangeTeam\' on dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
 #line 25
- testRunner.And("\'ChallangeTeam\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("As a developer i want to remove a board named \'RenamedRestApiBoard\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 26
- testRunner.And("Create \'TaskToBeDeleted\' in \'Blocked\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Call \'/boards\' endpoint with \'DELETE\' method for deletiton", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 27
- testRunner.And("\'TaskToBeDeleted\' card should be created in \'Blocked\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 28
- testRunner.And("Delete \'TaskToBeDeleted\' in \'Blocked\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Create New Card And Then Move")]
-        [Xunit.TraitAttribute("FeatureTitle", "Trello")]
-        [Xunit.TraitAttribute("Description", "Create New Card And Then Move")]
-        [Xunit.TraitAttribute("Category", "CreateNewCardAndThenMove")]
-        public virtual void CreateNewCardAndThenMove()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "CreateNewCardAndThenMove"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create New Card And Then Move", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 31
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
-this.FeatureBackground();
-#line hidden
-#line 32
- testRunner.And("Click to \'ChallangeTeam\' on dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 33
- testRunner.And("\'ChallangeTeam\' should be opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 34
- testRunner.And("Create \'TaskToBeMoved\' in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 35
- testRunner.And("\'TaskToBeMoved\' card should be created in \'Doing\' list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 36
- testRunner.And("Enter \'Sample card description\' to description and Move \'TaskToBeMoved\' to \'Done\'" +
-                        " list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 37
- testRunner.And("\'TaskToBeMoved\' card should be moved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+ testRunner.And("Board should be deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -277,12 +263,12 @@ this.FeatureBackground();
             
             public FixtureData()
             {
-                TrelloFeature.FeatureSetup();
+                TrelloBoardFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                TrelloFeature.FeatureTearDown();
+                TrelloBoardFeature.FeatureTearDown();
             }
         }
     }

@@ -8,9 +8,13 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="xunit.runner.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -28,10 +32,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Framework.ApiHandler\Framework.ApiHandler.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Helpers\" />
   </ItemGroup>
 
 </Project>

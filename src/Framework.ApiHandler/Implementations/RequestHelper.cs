@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Framework.ApiHandler.Implementations
 {
-    internal class RequestHelper
+    public class RequestHelper
     { 
         public RequestHelper()
         { 
@@ -23,7 +23,7 @@ namespace Framework.ApiHandler.Implementations
             }   
         }
 
-        internal static IRestRequest SetAuthentication(IRestRequest restRequest, RestServiceSettings restServiceSettings)
+        public static IRestRequest SetAuthentication(IRestRequest restRequest, RestServiceSettings restServiceSettings)
         { 
             restRequest.AddQueryParameter("key", restServiceSettings.Key);
             restRequest.AddQueryParameter("token", restServiceSettings.Token);

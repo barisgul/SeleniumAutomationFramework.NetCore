@@ -1,5 +1,7 @@
-﻿Feature: Trello
-	Simple calculator for adding two numbers
+﻿Feature: TrelloCards
+	This feature contains create card, update status, delete and complete scenarios.
+	All scenarios execute the Login steps before start to own scenario.
+	Login steps are type of Given-When-Then notation and the core scenario steps are type of Mark-Down notation. Supports both of them.
 
 Background: Login 
 	Given Open trello application on 'https://trello.com/'
@@ -35,3 +37,13 @@ Scenario: Create New Card And Then Move
 	* 'TaskToBeMoved' card should be created in 'Doing' list
 	* Enter 'Sample card description' to description and Move 'TaskToBeMoved' to 'Done' list
 	* 'TaskToBeMoved' card should be moved
+
+@CreateNewCardAndUpdateThenComplete
+Scenario: Create New Card and Update Then Complete
+	* Click to 'ChallangeTeam' on dashboard
+	* 'ChallangeTeam' should be opened
+	* Create 'Complete this card' in 'To Do' list 
+	* Enter 'Set as doing' to description and Move 'Complete this card' to 'Doing' list
+	* 'Complete this card' card should be moved
+	* Enter 'set as completed' to description and Move 'Complete this card' to 'Done' list
+	* 'Complete this card' card should be moved to 'Done' list

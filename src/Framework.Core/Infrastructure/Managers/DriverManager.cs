@@ -28,6 +28,16 @@ namespace Framework.Core.Infrastructure.Managers
             SetDriverModel();                              //set driver behaviorals like browserType, Environment
         }
 
+        /// <summary>
+        /// Initialize driver factory and create web driver instance
+        /// </summary>
+        public void Init()
+        {
+            driver = driverFactory.GetDriver(driverModel);
+            Logger.Info(string.Format("Selenium {0} initialized successfully", driver));
+            driver.Manage().Window.FullScreen();
+            driver.Manage().Window.Maximize();
+        }
         private void SetDriverModel()
         {
             string browser = appSettingsManager.GetSeleniumServiceSettings().Browser;
@@ -43,16 +53,6 @@ namespace Framework.Core.Infrastructure.Managers
             this.timeout = timeout;
         }
 
-        /// <summary>
-        /// Initialize driver factory and create web driver instance
-        /// </summary>
-        public void Init()
-        {
-            driver = driverFactory.GetDriver(driverModel);
-            Logger.Info(string.Format("Selenium {0} initialized successfully", driver));
-            driver.Manage().Window.FullScreen();
-            driver.Manage().Window.Maximize();
-        }
           
     }
 }

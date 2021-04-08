@@ -67,6 +67,7 @@ namespace Trello.UiTest.Pages
 
         private void ClickOnCardInList(string cardName)
         {
+            WebDriverHelper.ImplicitWait(driver, 2);
             driver.FindElement(By.XPath("//span[@class='list-card-title js-card-name' and text()='" + cardName + "']")).Click();
         }
     }

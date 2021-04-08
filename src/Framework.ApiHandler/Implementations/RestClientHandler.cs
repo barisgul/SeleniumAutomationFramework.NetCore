@@ -5,7 +5,6 @@ using Framework.Common.Managers;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Net.Http;
 
 namespace Framework.ApiHandler.Implementations
 {
@@ -13,32 +12,41 @@ namespace Framework.ApiHandler.Implementations
     {
         private readonly IAppSettingsManager appSettingsManager;
         private readonly RestServiceSettings restServiceSettings;
+        private readonly IRestClient restClient;
+
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public RestClientHandler()
         {
             appSettingsManager = new AppSettingsManager();
             restServiceSettings = appSettingsManager.GetRestServiceSettings();
-        }
-        public T Execute<T>()
-        {
-            throw new NotImplementedException();
+            restClient = new RestClient();
         }
 
-        public T Execute<T>(string baseUrl)
+       /// <summary>
+       /// DI for mock
+       /// </summary>
+       /// <param name="appSettingsManager"></param>
+       /// <param name="restClient"></param>
+        public RestClientHandler(IAppSettingsManager appSettingsManager, IRestClient restClient)
         {
-            throw new NotImplementedException();
+            this.restClient = restClient;
+            this.appSettingsManager = appSettingsManager;
+            restServiceSettings = appSettingsManager.GetRestServiceSettings();
         }
 
-        public T Execute<T>(string baseUrl, HttpMethod httpMethod)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Generic Execute method
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="baseUri"> base api url</param>
+        /// <param name="method">request method</param>
+        /// <param name="restRequest">IRestRequest object</param>
+        /// <returns></returns>
         public T Execute<T>(Uri baseUri, Method method, IRestRequest restRequest)
         {
-            IRestClient restClient = new RestClient
-            {
-                BaseUrl = baseUri
-            };
+            restClient.BaseUrl = baseUri;
             RequestHelper.SetAuthentication(restRequest, restServiceSettings);
 
             restRequest.AddHeader("Content-Type", "application/json");
@@ -51,18 +59,28 @@ namespace Framework.ApiHandler.Implementations
             return deserializedModel;
         }
 
+        public IRestResponse Execute(Uri baseUri, Method method, IRestRequest restRequest)
+        {
+            restClient.BaseUrl = baseUri;
+            RequestHelper.SetAuthentication(restRequest, restServiceSettings);
+
+            restRequest.AddHeader("Content-Type", "application/json");
+            restRequest.Method = method;
+            restRequest.Timeout = restServiceSettings.Timeout;
+
+            IRestResponse restResponse = restClient.Execute(restRequest);
+
+            return restResponse;
+        }
+
         public T ExecuteGet<T>(Uri baseUri, IRestRequest restRequest)
         {
-            IRestClient restClient = new RestClient
-            {
-                BaseUrl = baseUri
-            };
+            restClient.BaseUrl = baseUri; 
             RequestHelper.SetAuthentication(restRequest, restServiceSettings);
 
             restRequest.AddHeader("Content-Type", "application/json");
             restRequest.Method = Method.GET;
             restRequest.Timeout = restServiceSettings.Timeout;
-           
 
             IRestResponse restResponse = restClient.Execute(restRequest);
             T deserializedModel = JsonConvert.DeserializeObject<T>(restResponse.Content);
@@ -72,7 +90,6 @@ namespace Framework.ApiHandler.Implementations
 
         public T ExecutePost<T>(Uri baseUrl, IRestRequest restRequest)
         {
-            IRestClient restClient = new RestClient();
             restClient.BaseUrl = baseUrl;
 
             restRequest.AddHeader("Content-Type", "application/json");
@@ -83,7 +100,7 @@ namespace Framework.ApiHandler.Implementations
             IRestResponse restResponse = restClient.Execute(restRequest);
             T t = JsonConvert.DeserializeObject<T>(restResponse.Content);
 
-            return t; 
+            return t;
         }
     }
 }

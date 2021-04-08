@@ -8,7 +8,7 @@ namespace Framework.Core.SystemTests.Models
     /// <summary>
     /// e2e System test model over an internal html file for selenium webdriver click methods
     /// </summary>
-    public class ClickModel : BasePage
+    public class ClickModel : TestBase
     { 
         public IWebElement LinkNormal => driver.FindElement(By.Id("normal")); 
         public IWebElement LinkOverflow => driver.FindElement(By.Id("overflowLink"));  
