@@ -1,5 +1,5 @@
 ﻿Feature: TrelloBoard
-	Create, Get, Update and Delete Trello Board Through TrelloApi with Rest
+	This feature contains Create, Get, Update and Delete Trello Board Through Trello Rest Api Services
 
 @createBoard
 Scenario: 01 Create Board  

@@ -7,6 +7,11 @@ namespace Trello.UiTest.Helpers
     {
         private static Random random = new Random();
 
+        /// <summary>
+        /// Create random text
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
         public static string GenerateRandomText(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

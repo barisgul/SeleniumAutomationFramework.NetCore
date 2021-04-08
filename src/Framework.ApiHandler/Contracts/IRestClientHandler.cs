@@ -1,6 +1,5 @@
 ﻿using RestSharp;
-using System;
-using System.Net.Http;
+using System; 
 
 namespace Framework.ApiHandler.Contracts
 {
@@ -10,7 +9,6 @@ namespace Framework.ApiHandler.Contracts
     public interface IRestClientHandler
     {  
         IRestResponse Execute(Uri baseUri, Method method, IRestRequest restRequest);
-        T Execute<T>(Uri baseUri, Method method, IRestRequest restRequest);
-        T ExecuteGet<T>(Uri baseUrl, IRestRequest restRequest);
+        T Execute<T>(Uri baseUri, Method method, IRestRequest restRequest); 
     }
 }

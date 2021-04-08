@@ -4,6 +4,10 @@ namespace Trello.UiTest.Helpers
 {
     public static class TrelloBoardHelper
     { 
+        /// <summary>
+        /// Init a board model
+        /// </summary>
+        /// <returns></returns>
         public static Dictionary<string, int> InitBoardModel()
         {
             Dictionary<string, int> boardList = new Dictionary<string, int>();

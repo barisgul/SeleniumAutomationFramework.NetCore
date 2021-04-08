@@ -12,6 +12,10 @@ namespace Trello.UiTest.Pages
     {
         private readonly IWebDriver driver;
         private readonly int timeout;
+        Dictionary<string, int> boardListEnumarator;
+
+        #region WebElements
+
         By boardMainTitleLocator = By.XPath(" //div[@class='board-main-content']//h1[text()='AssignmentBoard']");
         private IWebElement boardMainTitle => driver.FindElement(boardMainTitleLocator);
         private ReadOnlyCollection<IWebElement> allBoardlists => driver.FindElements(By.XPath("//div[@class='list js-list-content']"));
@@ -21,9 +25,9 @@ namespace Trello.UiTest.Pages
         private IWebElement btnAddCard => driver.FindElement(By.XPath("//input[@value='Add card']"));
 
         By txtSearcLocator = By.XPath("//input[@placeholder='Jump to…']");
+        #endregion
 
-        Dictionary<string, int> boardListEnumarator;
-
+        #region Page Methods
         public TrelloBoardPage(IWebDriver driver, [Optional] int timeout)
         {
             this.driver = driver;
@@ -76,5 +80,7 @@ namespace Trello.UiTest.Pages
 
             return cardsInList[0].Displayed;
         }
+
+        #endregion
     }
 }

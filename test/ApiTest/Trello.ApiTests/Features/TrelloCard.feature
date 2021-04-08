@@ -1,5 +1,5 @@
 ﻿Feature: TrelloCard
-	Get Cards
+	This feature contains Get cards, Create card on a list, archiving a card and deleting a card through the trello rest api services
 
 @getBoardCars
 Scenario: 01 Get User Cards In A Board

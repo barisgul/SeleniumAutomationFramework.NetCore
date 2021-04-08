@@ -33,11 +33,6 @@ namespace Framework.Core.SystemTests.Models
         public string GetPageTitle()
         {
             return driver.Title;
-        }
-
-        //public void Dispose()
-        //{
-        //    base.Dispose();
-        //}
+        } 
     }
 }

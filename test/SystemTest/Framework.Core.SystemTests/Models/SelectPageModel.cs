@@ -37,10 +37,6 @@ namespace Framework.Core.SystemTests.Models
         {
             return driver.Title;
         }
-
-        public void Dispose()
-        {
-            base.Dispose();
-        }
+         
     }
 }

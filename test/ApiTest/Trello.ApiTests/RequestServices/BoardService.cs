@@ -84,6 +84,12 @@ namespace Trello.ApiTests.RequestServices
             return boardId;
         }
 
+        /// <summary>
+        /// Return all cards on a board
+        /// </summary>
+        /// <param name="endpoint"></param>
+        /// <param name="boardName"></param>
+        /// <returns></returns>
         public List<CardsOnABoardModel> GetCardsOnABoard(string endpoint, string boardName)
         {
             CustomBoardModel customBoardModel = GetCustomBoard("/boards", boardName);
@@ -93,7 +99,14 @@ namespace Trello.ApiTests.RequestServices
             return cards;
         }
 
-
+        /// <summary>
+        /// Rename a board
+        /// </summary>
+        /// <param name="endpoint"></param>
+        /// <param name="boardId"></param>
+        /// <param name="method"></param>
+        /// <param name="newName"></param>
+        /// <returns></returns>
         public UpdateBoardModel UpdateBoardName(string endpoint, string boardId, Method method, string newName)
         {
             string url = BaseUrl + endpoint + "/" + boardId;

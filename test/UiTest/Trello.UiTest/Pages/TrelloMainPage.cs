@@ -9,6 +9,7 @@ namespace Trello.UiTest.Pages
     {
         private readonly IWebDriver driver;
         private readonly int timeout;
+
         #region WebElements
         private readonly By byLblBoard = By.XPath("//span[@class='_3qwe2tMMFonNvf' and text() = 'Boards']");
         private IWebElement  lblBoards => driver.FindElement(byLblBoard);
@@ -21,6 +22,7 @@ namespace Trello.UiTest.Pages
         private IWebElement divBoardName => driver.FindElement(By.XPath("//div[@title='ChallangeTeam']"));
         #endregion
 
+        #region Page Methods 
 
         public TrelloMainPage(IWebDriver driver, [Optional] int timeout)
         {
@@ -55,5 +57,6 @@ namespace Trello.UiTest.Pages
         { 
             WebDriverHelper.ClickAndWaitForPageToLoad(driver, By.XPath("//div[@title='" + boardName + "']"), timeout);
         }
+        #endregion
     }
 }

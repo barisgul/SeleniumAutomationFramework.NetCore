@@ -59,6 +59,13 @@ namespace Framework.ApiHandler.Implementations
             return deserializedModel;
         }
 
+        /// <summary>
+        /// Execute a rest method
+        /// </summary>
+        /// <param name="baseUri"></param>
+        /// <param name="method"></param>
+        /// <param name="restRequest"></param>
+        /// <returns></returns>
         public IRestResponse Execute(Uri baseUri, Method method, IRestRequest restRequest)
         {
             restClient.BaseUrl = baseUri;
@@ -71,36 +78,7 @@ namespace Framework.ApiHandler.Implementations
             IRestResponse restResponse = restClient.Execute(restRequest);
 
             return restResponse;
-        }
-
-        public T ExecuteGet<T>(Uri baseUri, IRestRequest restRequest)
-        {
-            restClient.BaseUrl = baseUri; 
-            RequestHelper.SetAuthentication(restRequest, restServiceSettings);
-
-            restRequest.AddHeader("Content-Type", "application/json");
-            restRequest.Method = Method.GET;
-            restRequest.Timeout = restServiceSettings.Timeout;
-
-            IRestResponse restResponse = restClient.Execute(restRequest);
-            T deserializedModel = JsonConvert.DeserializeObject<T>(restResponse.Content);
-
-            return deserializedModel;
-        }
-
-        public T ExecutePost<T>(Uri baseUrl, IRestRequest restRequest)
-        {
-            restClient.BaseUrl = baseUrl;
-
-            restRequest.AddHeader("Content-Type", "application/json");
-            restRequest.Method = Method.POST;
-            restRequest.RequestFormat = DataFormat.Json;
-            //restRequest.AddBody(JsonConvert.SerializeObject(T));
-
-            IRestResponse restResponse = restClient.Execute(restRequest);
-            T t = JsonConvert.DeserializeObject<T>(restResponse.Content);
-
-            return t;
-        }
+        } 
+         
     }
 }

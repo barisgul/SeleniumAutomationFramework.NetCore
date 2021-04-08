@@ -9,8 +9,9 @@ namespace Trello.UiTest.Pages
     public class CardContainerPage
     {
         private readonly IWebDriver driver;
-        private readonly int timeout;
-
+        private int timeout;
+        #region WebElements
+       
         private IWebElement btnArchive => driver.FindElement(By.XPath("//span[text()='Archive']"));
         private IWebElement btnDelete => driver.FindElement(By.XPath("//span[text()='Delete']"));
         private IWebElement btnDeleteDanger => driver.FindElement(By.XPath("//input[@value='Delete']"));
@@ -19,8 +20,9 @@ namespace Trello.UiTest.Pages
         private IWebElement btnCloseActionModalView => driver.FindElement(By.XPath("//*[@id='chrome-container']/div[3]/div/div/a"));
         private IWebElement lblList => driver.FindElement(By.XPath("//select[@class='js-select-list']"));
         private IWebElement txtDescription => driver.FindElement(By.XPath("//a[text()='Add a more detailed description…']"));
-       
+        #endregion
 
+        #region Page methods
         public CardContainerPage(IWebDriver driver, [Optional] int timeout)
         {
             this.driver = driver;
@@ -70,5 +72,7 @@ namespace Trello.UiTest.Pages
             WebDriverHelper.ImplicitWait(driver, 2);
             driver.FindElement(By.XPath("//span[@class='list-card-title js-card-name' and text()='" + cardName + "']")).Click();
         }
+
+        #endregion
     }
 }

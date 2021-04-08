@@ -16,6 +16,10 @@ namespace Trello.ApiTests.RequestServices
         IRestClientHandler restClientHandler;
         IRestRequest restRequest;
         ListService listService;
+
+        /// <summary>
+        /// defaultc constructor
+        /// </summary>
         public CardService()
         {
             restClientHandler = new RestClientHandler();
@@ -23,6 +27,14 @@ namespace Trello.ApiTests.RequestServices
             listService = new ListService();
         }
 
+        /// <summary>
+        /// Create a new card on a list
+        /// </summary>
+        /// <param name="endpoint"></param>
+        /// <param name="method"></param>
+        /// <param name="cardName"></param>
+        /// <param name="boardListModel"></param>
+        /// <returns></returns>
         public CreateNewCardModel CreateANewCardOnAList(string endpoint, Method method, string cardName, BoardListModel boardListModel)
         {
             restRequest.AddQueryParameter("name", cardName);
@@ -33,6 +45,11 @@ namespace Trello.ApiTests.RequestServices
             return createNewCardModel;
         }
 
+        /// <summary>
+        /// Returns all cards on a list
+        /// </summary>
+        /// <param name="boardName"></param>
+        /// <returns></returns>
         public List<CardsOnAListModel> GetCardsOnAList(string boardName)
         {
             var listsOnCard = listService.GetListsOnABoard(boardName);
@@ -44,6 +61,12 @@ namespace Trello.ApiTests.RequestServices
             return cardsOnAListModels;
         }
 
+        /// <summary>
+        /// Returns card on a list for card name and idCard info
+        /// </summary>
+        /// <param name="cardsOnAListModels"></param>
+        /// <param name="cardName"></param>
+        /// <returns></returns>
         public CardsOnAListModel SelectExpedtedCardFromList(List<CardsOnAListModel> cardsOnAListModels, string cardName)
         {
             CardsOnAListModel cardsOnAListModel = null;
@@ -58,7 +81,12 @@ namespace Trello.ApiTests.RequestServices
             return cardsOnAListModel;
         }
 
-
+        /// <summary>
+        /// Add description to a card on a list
+        /// </summary>
+        /// <param name="cardOnAlist"></param>
+        /// <param name="description"></param>
+        /// <returns></returns>
         public UpdateACardModel UpdateACardOnAList(CardsOnAListModel cardOnAlist, string description)
         {
             restRequest.AddQueryParameter("desc", description);
@@ -70,6 +98,10 @@ namespace Trello.ApiTests.RequestServices
             return updateACardModel;
         }
 
+        /// <summary>
+        /// Archive a card on a board
+        /// </summary>
+        /// <param name="cardsOnAListModel"></param>
         internal void CloseCardAsComplete(CardsOnAListModel cardsOnAListModel)
         {
             restRequest.AddQueryParameter("closed", "true");
@@ -77,6 +109,11 @@ namespace Trello.ApiTests.RequestServices
             IRestResponse response = restClientHandler.Execute(new Uri(baseUrl), Method.PUT, restRequest);
         }
 
+        /// <summary>
+        /// Delete a card on a board
+        /// </summary>
+        /// <param name="cardsOnAListModel"></param>
+        /// <returns></returns>
         internal IRestResponse DeleteCardOnABoard(CardsOnAListModel cardsOnAListModel)
         { 
             string baseUrl = BaseUrl + EndpointConstants.cardsPath + "/" + cardsOnAListModel.id;

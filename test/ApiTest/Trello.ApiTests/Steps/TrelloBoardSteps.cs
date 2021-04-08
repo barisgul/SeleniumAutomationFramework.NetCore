@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
 using RestSharp;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

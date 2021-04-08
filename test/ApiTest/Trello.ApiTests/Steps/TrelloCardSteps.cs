@@ -3,7 +3,6 @@ using RestSharp;
 using System.Collections.Generic;
 using System.Net;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 using TechTalk.SpecFlow.UnitTestProvider;
 using Trello.ApiTests.Entites;
 using Trello.ApiTests.Entites.Cards;

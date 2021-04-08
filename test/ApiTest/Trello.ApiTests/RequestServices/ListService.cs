@@ -4,7 +4,6 @@ using Framework.ApiHandler.Implementations;
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Trello.ApiTests.Entites;
 using Trello.ApiTests.Entites.Lists;
 using Trello.ApiTests.Helpers;
@@ -16,6 +15,10 @@ namespace Trello.ApiTests.RequestServices
         IRestClientHandler restClientHandler;
         IRestRequest restRequest;
         BoardService boardService;
+        
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public ListService()
         {
             restClientHandler = new RestClientHandler();
@@ -23,6 +26,11 @@ namespace Trello.ApiTests.RequestServices
             boardService = new BoardService();
         }
 
+        /// <summary>
+        /// return all list on a board
+        /// </summary>
+        /// <param name="boardName"></param>
+        /// <returns></returns>
         public List<BoardListModel> GetListsOnABoard(string boardName)
         {
             CustomBoardModel boardModel = boardService.GetCustomBoard(EndpointConstants.boardsPath, boardName);
@@ -32,6 +40,12 @@ namespace Trello.ApiTests.RequestServices
             return boardLists;
         }
 
+        /// <summary>
+        /// get expected board on a list
+        /// </summary>
+        /// <param name="boardListModels"></param>
+        /// <param name="listName"></param>
+        /// <returns></returns>
         public BoardListModel SelectExpectedList(List<BoardListModel> boardListModels, string listName)
         {
             BoardListModel boardListModel = null;
