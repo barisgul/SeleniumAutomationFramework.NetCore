@@ -10,7 +10,8 @@ using Trello.ApiTests.RequestServices;
 
 namespace Trello.ApiTests.Steps
 {
-    [Binding, Scope(Feature ="TrelloBoard")]
+    [Binding, Scope(Feature = "TrelloBoard")]
+    [assembly: CollectionBehavior(DisableTestParallelization = true)]    
     public class TrelloBoardSteps
     {
         private readonly IUnitTestRuntimeProvider testRuntimeProvider;

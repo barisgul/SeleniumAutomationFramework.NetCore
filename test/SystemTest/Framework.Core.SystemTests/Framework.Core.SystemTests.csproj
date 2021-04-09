@@ -10,6 +10,7 @@
     <None Remove="appsettings.json" />
     <None Remove="Sources\clicks.html" />
     <None Remove="Sources\selectPage.html" />
+    <None Remove="xunit.runner.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,9 @@
     </Content>
     <Content Include="Sources\selectPage.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

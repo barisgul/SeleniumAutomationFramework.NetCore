@@ -81,16 +81,16 @@ namespace Trello.ApiTests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="01 Get User Cards In A Board")]
+        [Xunit.SkippableFactAttribute(DisplayName="1) Get User Cards In A Board")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloCard")]
-        [Xunit.TraitAttribute("Description", "01 Get User Cards In A Board")]
+        [Xunit.TraitAttribute("Description", "1) Get User Cards In A Board")]
         [Xunit.TraitAttribute("Category", "getBoardCars")]
-        public virtual void _01GetUserCardsInABoard()
+        public virtual void _1GetUserCardsInABoard()
         {
             string[] tagsOfScenario = new string[] {
                     "getBoardCars"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Get User Cards In A Board", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1) Get User Cards In A Board", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -124,16 +124,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="02 Create a Card on a list")]
+        [Xunit.SkippableFactAttribute(DisplayName="2) Create a Card on a list")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloCard")]
-        [Xunit.TraitAttribute("Description", "02 Create a Card on a list")]
+        [Xunit.TraitAttribute("Description", "2) Create a Card on a list")]
         [Xunit.TraitAttribute("Category", "updateCard")]
-        public virtual void _02CreateACardOnAList()
+        public virtual void _2CreateACardOnAList()
         {
             string[] tagsOfScenario = new string[] {
                     "updateCard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Create a Card on a list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2) Create a Card on a list", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -168,16 +168,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="03 Move Card To Archive")]
+        [Xunit.SkippableFactAttribute(DisplayName="3) Move Card To Archive")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloCard")]
-        [Xunit.TraitAttribute("Description", "03 Move Card To Archive")]
+        [Xunit.TraitAttribute("Description", "3) Move Card To Archive")]
         [Xunit.TraitAttribute("Category", "completeCard")]
-        public virtual void _03MoveCardToArchive()
+        public virtual void _3MoveCardToArchive()
         {
             string[] tagsOfScenario = new string[] {
                     "completeCard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Move Card To Archive", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3) Move Card To Archive", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 17
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -213,16 +213,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="04 Delete Card")]
+        [Xunit.SkippableFactAttribute(DisplayName="4) Delete Card")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloCard")]
-        [Xunit.TraitAttribute("Description", "04 Delete Card")]
+        [Xunit.TraitAttribute("Description", "4) Delete Card")]
         [Xunit.TraitAttribute("Category", "deleteCard")]
-        public virtual void _04DeleteCard()
+        public virtual void _4DeleteCard()
         {
             string[] tagsOfScenario = new string[] {
                     "deleteCard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Delete Card", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4) Delete Card", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden

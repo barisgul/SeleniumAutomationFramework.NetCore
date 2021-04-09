@@ -81,16 +81,16 @@ namespace Trello.ApiTests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="01 Create Board")]
+        [Xunit.SkippableFactAttribute(DisplayName="1) Create Board")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
-        [Xunit.TraitAttribute("Description", "01 Create Board")]
+        [Xunit.TraitAttribute("Description", "1) Create Board")]
         [Xunit.TraitAttribute("Category", "createBoard")]
-        public virtual void _01CreateBoard()
+        public virtual void _1CreateBoard()
         {
             string[] tagsOfScenario = new string[] {
                     "createBoard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("01 Create Board", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("1) Create Board", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -124,16 +124,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="02 Get User Boards")]
+        [Xunit.SkippableFactAttribute(DisplayName="2) Get User Boards")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
-        [Xunit.TraitAttribute("Description", "02 Get User Boards")]
+        [Xunit.TraitAttribute("Description", "2) Get User Boards")]
         [Xunit.TraitAttribute("Category", "getBoard")]
-        public virtual void _02GetUserBoards()
+        public virtual void _2GetUserBoards()
         {
             string[] tagsOfScenario = new string[] {
                     "getBoard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 Get User Boards", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("2) Get User Boards", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -170,16 +170,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="03 Update Board Name If Exist")]
+        [Xunit.SkippableFactAttribute(DisplayName="3) Update Board Name If Exist")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
-        [Xunit.TraitAttribute("Description", "03 Update Board Name If Exist")]
+        [Xunit.TraitAttribute("Description", "3) Update Board Name If Exist")]
         [Xunit.TraitAttribute("Category", "updateBoard")]
-        public virtual void _03UpdateBoardNameIfExist()
+        public virtual void _3UpdateBoardNameIfExist()
         {
             string[] tagsOfScenario = new string[] {
                     "updateBoard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 Update Board Name If Exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("3) Update Board Name If Exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -214,16 +214,16 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="04 Delete Board If Exist")]
+        [Xunit.SkippableFactAttribute(DisplayName="4) Delete Board If Exist")]
         [Xunit.TraitAttribute("FeatureTitle", "TrelloBoard")]
-        [Xunit.TraitAttribute("Description", "04 Delete Board If Exist")]
+        [Xunit.TraitAttribute("Description", "4) Delete Board If Exist")]
         [Xunit.TraitAttribute("Category", "deleteBoard")]
-        public virtual void _04DeleteBoardIfExist()
+        public virtual void _4DeleteBoardIfExist()
         {
             string[] tagsOfScenario = new string[] {
                     "deleteBoard"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 Delete Board If Exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("4) Delete Board If Exist", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
